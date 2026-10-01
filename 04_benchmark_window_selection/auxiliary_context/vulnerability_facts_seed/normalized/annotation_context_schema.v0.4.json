@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "annotation_context_schema.v0.4.json",
+  "title": "EWVAA auxiliary vulnerability annotation context v0.4",
+  "type": "object",
+  "required": ["schema_version", "created_from", "use", "scenarios"],
+  "properties": {
+    "schema_version": {"const": "scenario_vulnerability_facts.annotation_context.v0.4"},
+    "created_at": {"type": "string"},
+    "created_from": {"type": "string"},
+    "use": {"const": "Evidence-Weighted Annotation self-contained auxiliary context"},
+    "supplement_scope": {"type": "object"},
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scenario_id",
+          "scenario_type",
+          "cve_ids",
+          "product_hint",
+          "affected_component_human",
+          "official_context_summary",
+          "scenario_context_summary",
+          "mechanism_category",
+          "impact_category",
+          "attack_surface_hint",
+          "observable_artifact_hints",
+          "stage_reasoning_hints",
+          "annotation_prompt_context",
+          "source_extracts",
+          "quality_flags",
+          "strict_use_constraints"
+        ],
+        "properties": {
+          "scenario_id": {"type": "string"},
+          "scenario_type": {"type": "string"},
+          "cve_ids": {"type": "array", "items": {"type": "string"}},
+          "product_hint": {"type": "string"},
+          "affected_component_human": {"type": "string"},
+          "official_context_summary": {"type": "string"},
+          "scenario_context_summary": {"type": "string"},
+          "mechanism_category": {"type": "array", "items": {"type": "string"}},
+          "impact_category": {"type": "array", "items": {"type": "string"}},
+          "attack_surface_hint": {"type": "string"},
+          "observable_artifact_hints": {"type": "array", "items": {"type": "string"}},
+          "stage_reasoning_hints": {
+            "type": "object",
+            "required": ["preparation", "execution", "result", "none"],
+            "properties": {
+              "preparation": {"type": "string"},
+              "execution": {"type": "string"},
+              "result": {"type": "string"},
+              "none": {"type": "string"}
+            },
+            "additionalProperties": false
+          },
+          "annotation_prompt_context": {"type": "string"},
+          "source_extracts": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["source_type", "summary", "confidence"],
+              "properties": {
+                "source_type": {
+                  "enum": ["NVD", "CVE_PROGRAM", "VULHUB", "OWASP", "LOCAL_CONTEXT", "SMARTY", "DEBIAN", "UBUNTU"]
+                },
+                "summary": {"type": "string"},
+                "confidence": {"enum": ["official", "scenario_doc", "local_context"]}
+              },
+              "additionalProperties": false
+            }
+          },
+          "quality_flags": {
+            "type": "object",
+            "required": [
+              "needs_manual_review",
+              "insufficient_context",
+              "scenario_doc_missing",
+              "non_cve_context_only",
+              "source_extracts_embedded"
+            ],
+            "properties": {
+              "needs_manual_review": {"type": "boolean"},
+              "insufficient_context": {"type": "boolean"},
+              "scenario_doc_missing": {"type": "boolean"},
+              "non_cve_context_only": {"type": "boolean"},
+              "source_extracts_embedded": {"type": "boolean"}
+            },
+            "additionalProperties": false
+          },
+          "strict_use_constraints": {
+            "type": "object",
+            "required": [
+              "must_not_use_as_primary_evidence",
+              "must_not_invent_payload",
+              "must_not_invent_success_result",
+              "must_not_infer_stage_without_primary_evidence",
+              "final_judgement_requires_primary_evidence"
+            ],
+            "properties": {
+              "must_not_use_as_primary_evidence": {"type": "boolean"},
+              "must_not_invent_payload": {"type": "boolean"},
+              "must_not_invent_success_result": {"type": "boolean"},
+              "must_not_infer_stage_without_primary_evidence": {"type": "boolean"},
+              "final_judgement_requires_primary_evidence": {"type": "boolean"}
+            },
+            "additionalProperties": false
+          },
+          "alias": {"type": "object"},
+          "upstream_reference": {"type": "object"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

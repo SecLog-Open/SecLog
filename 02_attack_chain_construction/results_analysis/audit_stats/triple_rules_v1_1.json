@@ -1,0 +1,776 @@
+{
+    "meta": {
+        "name": "triple_rules_v1_1",
+        "raw_evt_type_count_core_v1_1": 18,
+        "normalized_relation_count_core_v1_1": 9,
+        "newly_supported_raw_evt_type": [
+            "clone3",
+            "fork",
+            "vfork",
+            "pread",
+            "readv",
+            "pwrite",
+            "writev",
+            "accept"
+        ],
+        "rule_count_by_tier_raw_evt_type": {
+            "core": 18,
+            "auxiliary": 7,
+            "filtered": 9
+        },
+        "rule_entry_count_by_tier": {
+            "core": 10,
+            "auxiliary": 7,
+            "filtered": 9
+        }
+    },
+    "identity": {
+        "subject_process_key": {
+            "format": "proc:{container_id}:{pid}:{exepath}",
+            "container_id_fallback": "host",
+            "pid_priority": [
+                "proc.pid",
+                "proc.vpid",
+                "unknown_pid"
+            ],
+            "exepath_priority": [
+                "proc.exepath",
+                "proc.name",
+                "unknown_exe"
+            ]
+        },
+        "object_file_key": {
+            "format": "file:{path}",
+            "path_priority": [
+                "evt.arg.filename",
+                "fd.name",
+                "evt.arg.newpath",
+                "evt.arg.oldpath",
+                "unknown_path"
+            ]
+        },
+        "object_conn_key": {
+            "format": "conn:{src_ip}:{src_port}->{dst_ip}:{dst_port}",
+            "priority": [
+                "fd.name_if_conn_like",
+                "fd.sip+fd.sport+fd.cip+fd.cport",
+                "fd.lip+fd.sport+fd.rip+fd.cport",
+                "unknown_conn"
+            ],
+            "direction_convention": "prefer client->server",
+            "session_reuse_principle": [
+                "bucket events by unordered 4-tuple",
+                "assign one canonical directed conn key per bucket",
+                "reuse same conn key for connect/accept/send/recv",
+                "if direction undecidable, keep first-seen direction and store direction_hint"
+            ]
+        },
+        "object_child_process_key": {
+            "format": "proc:{container_id}:{child_pid}:{child_exepath_or_unknown}",
+            "child_pid_priority": [
+                "evt.arg.pid",
+                "evt.rawres",
+                "unknown_child"
+            ]
+        }
+    },
+    "attrs_policy": {
+        "must_keep": [
+            "raw_evt_type",
+            "evt_num",
+            "timestamp",
+            "malicious"
+        ],
+        "reason": "preserve syscall-level detail after normalization"
+    },
+    "core_rules": [
+        {
+            "rule_id": "C1",
+            "raw_evt_type": [
+                "openat"
+            ],
+            "normalized_relation": "FILE_OPEN",
+            "triple_pattern": "process->file",
+            "tier": "core",
+            "weight_hint": "low_weight_core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "file:{evt.arg.filename|fd.name}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "evt.category",
+                "evt.rawres",
+                "proc.name",
+                "proc.pid",
+                "proc.exepath",
+                "container.id",
+                "fd.name",
+                "fd.type",
+                "fd.num"
+            ],
+            "notes": [
+                "FILE_OPEN marks first contact with file object.",
+                "Skip if fd.type indicates network endpoint."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "openat",
+                    "evt.category": "file",
+                    "evt.datetime": "2026-02-07 09:35:00.123456789",
+                    "evt.num": 12001,
+                    "proc.pid": 39655,
+                    "proc.exepath": "/usr/local/bin/python3.12",
+                    "proc.name": "python",
+                    "container.id": "8e3ed5e3d1b3",
+                    "evt.arg.filename": "/app/data/users.db",
+                    "fd.name": "/app/data/users.db",
+                    "fd.type": "file"
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:39655:/usr/local/bin/python3.12",
+                    "relation": "FILE_OPEN",
+                    "object": "file:/app/data/users.db",
+                    "attrs": {
+                        "raw_evt_type": "openat",
+                        "evt_num": 12001,
+                        "timestamp": "2026-02-07 09:35:00.123456789"
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C2",
+            "raw_evt_type": [
+                "open"
+            ],
+            "normalized_relation": "FILE_OPEN",
+            "triple_pattern": "process->file",
+            "tier": "core",
+            "weight_hint": "low_weight_core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "file:{evt.arg.filename|fd.name}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "evt.category",
+                "proc.name",
+                "proc.pid",
+                "proc.exepath",
+                "container.id",
+                "fd.name",
+                "fd.type"
+            ],
+            "notes": [
+                "Merged into FILE_OPEN with openat."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "open",
+                    "evt.category": "file",
+                    "evt.datetime": "2026-02-07 09:35:01.000000001",
+                    "evt.num": 12021,
+                    "proc.pid": 39655,
+                    "proc.exepath": "/usr/local/bin/python3.12",
+                    "container.id": "8e3ed5e3d1b3",
+                    "fd.name": "/etc/hosts",
+                    "fd.type": "file"
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:39655:/usr/local/bin/python3.12",
+                    "relation": "FILE_OPEN",
+                    "object": "file:/etc/hosts",
+                    "attrs": {
+                        "raw_evt_type": "open",
+                        "evt_num": 12021
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C3",
+            "raw_evt_type": [
+                "read",
+                "pread",
+                "readv"
+            ],
+            "normalized_relation": "FILE_READ",
+            "triple_pattern": "process->file",
+            "tier": "core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "file:{fd.name|evt.arg.filename}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "evt.rawres",
+                "evt.arg.data",
+                "evt.category",
+                "fd.name",
+                "fd.type",
+                "fd.num",
+                "proc.pid",
+                "proc.exepath",
+                "container.id"
+            ],
+            "notes": [
+                "read/pread/readv normalized to FILE_READ.",
+                "Keep raw_evt_type to preserve syscall detail."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "readv",
+                    "evt.category": "file",
+                    "evt.datetime": "2026-02-07 09:35:02.111111111",
+                    "evt.num": 12101,
+                    "proc.pid": 39655,
+                    "proc.exepath": "/usr/local/bin/python3.12",
+                    "container.id": "8e3ed5e3d1b3",
+                    "fd.name": "/app/data/users.db",
+                    "fd.type": "file",
+                    "evt.rawres": 4096
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:39655:/usr/local/bin/python3.12",
+                    "relation": "FILE_READ",
+                    "object": "file:/app/data/users.db",
+                    "attrs": {
+                        "raw_evt_type": "readv",
+                        "bytes": 4096,
+                        "evt_num": 12101
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C4",
+            "raw_evt_type": [
+                "write",
+                "pwrite",
+                "writev"
+            ],
+            "normalized_relation": "FILE_WRITE",
+            "triple_pattern": "process->file",
+            "tier": "core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "file:{fd.name|evt.arg.filename}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "evt.rawres",
+                "evt.arg.data",
+                "evt.category",
+                "fd.name",
+                "fd.type",
+                "fd.num",
+                "proc.pid",
+                "proc.exepath",
+                "container.id"
+            ],
+            "notes": [
+                "write/pwrite/writev normalized to FILE_WRITE.",
+                "Keep raw_evt_type to preserve syscall detail."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "pwrite",
+                    "evt.category": "file",
+                    "evt.datetime": "2026-02-07 09:35:03.222222222",
+                    "evt.num": 12122,
+                    "proc.pid": 39655,
+                    "proc.exepath": "/usr/local/bin/python3.12",
+                    "container.id": "8e3ed5e3d1b3",
+                    "fd.name": "/var/log/app.log",
+                    "fd.type": "file",
+                    "evt.rawres": 128
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:39655:/usr/local/bin/python3.12",
+                    "relation": "FILE_WRITE",
+                    "object": "file:/var/log/app.log",
+                    "attrs": {
+                        "raw_evt_type": "pwrite",
+                        "bytes": 128,
+                        "evt_num": 12122
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C5",
+            "raw_evt_type": [
+                "execve"
+            ],
+            "normalized_relation": "PROCESS_EXEC",
+            "triple_pattern": "process->file",
+            "tier": "core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "file:{proc.exepath|evt.arg.filename}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "proc.pid",
+                "proc.name",
+                "proc.exepath",
+                "proc.cmdline",
+                "container.id"
+            ],
+            "notes": [
+                "High-value transition edge for attack stage shift."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "execve",
+                    "evt.category": "process",
+                    "evt.datetime": "2026-02-07 09:35:04.333333333",
+                    "evt.num": 12180,
+                    "proc.pid": 40211,
+                    "proc.name": "sh",
+                    "proc.exepath": "/usr/bin/sh",
+                    "proc.cmdline": "sh -c whoami",
+                    "container.id": "8e3ed5e3d1b3"
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:40211:/usr/bin/sh",
+                    "relation": "PROCESS_EXEC",
+                    "object": "file:/usr/bin/sh",
+                    "attrs": {
+                        "raw_evt_type": "execve",
+                        "cmdline": "sh -c whoami",
+                        "evt_num": 12180
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C6",
+            "raw_evt_type": [
+                "clone",
+                "clone3",
+                "fork",
+                "vfork"
+            ],
+            "normalized_relation": "PROCESS_FORK",
+            "triple_pattern": "process->process",
+            "tier": "core",
+            "subject_rule": "parent proc key from proc fields",
+            "object_rule": "child proc key from evt.arg.pid|evt.rawres",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "evt.rawres",
+                "evt.arg.pid",
+                "proc.pid",
+                "proc.exepath",
+                "proc.name",
+                "container.id"
+            ],
+            "notes": [
+                "clone/clone3/fork/vfork normalized to PROCESS_FORK.",
+                "Keep raw_evt_type to preserve syscall detail."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "clone3",
+                    "evt.category": "process",
+                    "evt.datetime": "2026-02-07 09:35:05.444444444",
+                    "evt.num": 12230,
+                    "evt.rawres": 40301,
+                    "proc.pid": 40211,
+                    "proc.exepath": "/usr/bin/sh",
+                    "container.id": "8e3ed5e3d1b3"
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:40211:/usr/bin/sh",
+                    "relation": "PROCESS_FORK",
+                    "object": "proc:8e3ed5e3d1b3:40301:unknown_exe",
+                    "attrs": {
+                        "raw_evt_type": "clone3",
+                        "evt_num": 12230
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C7",
+            "raw_evt_type": [
+                "connect"
+            ],
+            "normalized_relation": "NET_CONNECT",
+            "triple_pattern": "process->conn",
+            "tier": "core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "conn:{fd.name or fd.sip/sport/fd.cip/cport}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "fd.name",
+                "fd.type",
+                "fd.lip",
+                "fd.cip",
+                "fd.sport",
+                "fd.cport",
+                "proc.pid",
+                "proc.exepath",
+                "container.id"
+            ],
+            "notes": [
+                "Moved into v1 core.",
+                "Use canonical conn key to maximize session reuse across net relations."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "connect",
+                    "evt.category": "net",
+                    "evt.datetime": "2026-02-07 09:35:06.555555555",
+                    "evt.num": 12291,
+                    "proc.pid": 40301,
+                    "proc.exepath": "/usr/bin/curl",
+                    "container.id": "8e3ed5e3d1b3",
+                    "fd.name": "192.168.123.2:52344->10.0.0.5:80",
+                    "fd.type": "ipv4"
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:40301:/usr/bin/curl",
+                    "relation": "NET_CONNECT",
+                    "object": "conn:192.168.123.2:52344->10.0.0.5:80",
+                    "attrs": {
+                        "raw_evt_type": "connect",
+                        "evt_num": 12291
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C8",
+            "raw_evt_type": [
+                "accept",
+                "accept4"
+            ],
+            "normalized_relation": "NET_ACCEPT",
+            "triple_pattern": "process->conn",
+            "tier": "core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "conn:{fd.name or fd.sip/sport/fd.rip/cport}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "fd.name",
+                "fd.type",
+                "fd.sip",
+                "fd.sport",
+                "fd.rip",
+                "fd.cport",
+                "proc.pid",
+                "proc.exepath",
+                "container.id"
+            ],
+            "notes": [
+                "accept/accept4 normalized to NET_ACCEPT.",
+                "Keep raw_evt_type to preserve syscall detail."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "accept",
+                    "evt.category": "net",
+                    "evt.datetime": "2026-02-07 09:35:07.666666666",
+                    "evt.num": 12340,
+                    "proc.pid": 39655,
+                    "proc.exepath": "/usr/local/bin/python3.12",
+                    "container.id": "8e3ed5e3d1b3",
+                    "fd.name": "192.168.123.3:55866->192.168.123.2:8000",
+                    "fd.type": "ipv4"
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:39655:/usr/local/bin/python3.12",
+                    "relation": "NET_ACCEPT",
+                    "object": "conn:192.168.123.3:55866->192.168.123.2:8000",
+                    "attrs": {
+                        "raw_evt_type": "accept",
+                        "evt_num": 12340
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C9",
+            "raw_evt_type": [
+                "sendto"
+            ],
+            "normalized_relation": "NET_SEND",
+            "triple_pattern": "process->conn",
+            "tier": "core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "conn:{fd.name or fd.sip/sport/fd.rip/cport}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "evt.rawres",
+                "fd.name",
+                "fd.type",
+                "fd.sip",
+                "fd.sport",
+                "fd.rip",
+                "fd.cport",
+                "proc.pid",
+                "proc.exepath",
+                "container.id"
+            ],
+            "notes": [
+                "Paired with NET_RECV for bidirectional flow reconstruction."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "sendto",
+                    "evt.category": "net",
+                    "evt.datetime": "2026-02-07 09:35:08.777777777",
+                    "evt.num": 12388,
+                    "evt.rawres": 512,
+                    "proc.pid": 39655,
+                    "proc.exepath": "/usr/local/bin/python3.12",
+                    "container.id": "8e3ed5e3d1b3",
+                    "fd.name": "192.168.123.2:8000->192.168.123.3:55866",
+                    "fd.type": "ipv4"
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:39655:/usr/local/bin/python3.12",
+                    "relation": "NET_SEND",
+                    "object": "conn:192.168.123.2:8000->192.168.123.3:55866",
+                    "attrs": {
+                        "raw_evt_type": "sendto",
+                        "bytes": 512,
+                        "evt_num": 12388
+                    }
+                }
+            }
+        },
+        {
+            "rule_id": "C10",
+            "raw_evt_type": [
+                "recvfrom"
+            ],
+            "normalized_relation": "NET_RECV",
+            "triple_pattern": "process->conn",
+            "tier": "core",
+            "subject_rule": "proc:{container.id|host}:{proc.pid|proc.vpid}:{proc.exepath|proc.name}",
+            "object_rule": "conn:{fd.name or fd.sip/sport/fd.rip/cport}",
+            "attrs_keep": [
+                "raw_evt_type",
+                "evt.datetime",
+                "evt.num",
+                "evt.rawres",
+                "fd.name",
+                "fd.type",
+                "fd.sip",
+                "fd.sport",
+                "fd.rip",
+                "fd.cport",
+                "proc.pid",
+                "proc.exepath",
+                "container.id"
+            ],
+            "notes": [
+                "Paired with NET_SEND for bidirectional flow reconstruction."
+            ],
+            "example": {
+                "input_json": {
+                    "evt.type": "recvfrom",
+                    "evt.category": "net",
+                    "evt.datetime": "2026-02-07 09:35:09.888888888",
+                    "evt.num": 12410,
+                    "evt.rawres": 1024,
+                    "proc.pid": 39655,
+                    "proc.exepath": "/usr/local/bin/python3.12",
+                    "container.id": "8e3ed5e3d1b3",
+                    "fd.name": "192.168.123.3:55866->192.168.123.2:8000",
+                    "fd.type": "ipv4"
+                },
+                "output_triple": {
+                    "subject": "proc:8e3ed5e3d1b3:39655:/usr/local/bin/python3.12",
+                    "relation": "NET_RECV",
+                    "object": "conn:192.168.123.3:55866->192.168.123.2:8000",
+                    "attrs": {
+                        "raw_evt_type": "recvfrom",
+                        "bytes": 1024,
+                        "evt_num": 12410
+                    }
+                }
+            }
+        }
+    ],
+    "unification_notes": [
+        {
+            "normalized_relation": "FILE_OPEN",
+            "raw_evt_type_family": [
+                "openat",
+                "open"
+            ],
+            "why_unify": "same semantic: process starts touching file object",
+            "details_preserved_in_attrs": [
+                "raw_evt_type",
+                "evt.num",
+                "fd.*"
+            ]
+        },
+        {
+            "normalized_relation": "FILE_READ",
+            "raw_evt_type_family": [
+                "read",
+                "pread",
+                "readv"
+            ],
+            "why_unify": "same semantic: process reads data",
+            "details_preserved_in_attrs": [
+                "raw_evt_type",
+                "evt.rawres",
+                "fd.*"
+            ]
+        },
+        {
+            "normalized_relation": "FILE_WRITE",
+            "raw_evt_type_family": [
+                "write",
+                "pwrite",
+                "writev"
+            ],
+            "why_unify": "same semantic: process writes data",
+            "details_preserved_in_attrs": [
+                "raw_evt_type",
+                "evt.rawres",
+                "fd.*"
+            ]
+        },
+        {
+            "normalized_relation": "PROCESS_FORK",
+            "raw_evt_type_family": [
+                "clone",
+                "clone3",
+                "fork",
+                "vfork"
+            ],
+            "why_unify": "same semantic: parent-child process creation",
+            "details_preserved_in_attrs": [
+                "raw_evt_type",
+                "evt.rawres",
+                "evt.arg.pid"
+            ]
+        },
+        {
+            "normalized_relation": "NET_ACCEPT",
+            "raw_evt_type_family": [
+                "accept",
+                "accept4"
+            ],
+            "why_unify": "same semantic: server accepts inbound connection",
+            "details_preserved_in_attrs": [
+                "raw_evt_type",
+                "fd.*"
+            ]
+        }
+    ],
+    "auxiliary_rules": [
+        {
+            "raw_evt_type": "socket",
+            "normalized_relation": "NET_SOCKET_CREATE",
+            "triple_pattern": "process->conn",
+            "tier": "auxiliary",
+            "notes": "endpoint creation, not actual communication"
+        },
+        {
+            "raw_evt_type": "shutdown",
+            "normalized_relation": "NET_SHUTDOWN",
+            "triple_pattern": "process->conn",
+            "tier": "auxiliary",
+            "notes": "connection lifecycle end"
+        },
+        {
+            "raw_evt_type": "getpeername",
+            "normalized_relation": "NET_PEER_QUERY",
+            "triple_pattern": "process->conn",
+            "tier": "auxiliary",
+            "notes": "state query"
+        },
+        {
+            "raw_evt_type": "bind",
+            "normalized_relation": "NET_BIND",
+            "triple_pattern": "process->conn",
+            "tier": "auxiliary",
+            "notes": "service bind metadata"
+        },
+        {
+            "raw_evt_type": "listen",
+            "normalized_relation": "NET_LISTEN",
+            "triple_pattern": "process->conn",
+            "tier": "auxiliary",
+            "notes": "service listening state"
+        },
+        {
+            "raw_evt_type": "rename",
+            "normalized_relation": "FILE_RENAME",
+            "triple_pattern": "process->file",
+            "tier": "auxiliary",
+            "notes": "coverage not enough for core in current dataset"
+        },
+        {
+            "raw_evt_type": "unlink",
+            "normalized_relation": "FILE_DELETE",
+            "triple_pattern": "process->file",
+            "tier": "auxiliary",
+            "notes": "coverage not enough for core in current dataset"
+        }
+    ],
+    "filtered_rules": [
+        {
+            "raw_evt_type": "stat",
+            "tier": "filtered",
+            "reason": "metadata query noise"
+        },
+        {
+            "raw_evt_type": "fstat",
+            "tier": "filtered",
+            "reason": "fd status query"
+        },
+        {
+            "raw_evt_type": "lstat",
+            "tier": "filtered",
+            "reason": "path attribute query"
+        },
+        {
+            "raw_evt_type": "lseek",
+            "tier": "filtered",
+            "reason": "offset control without graph semantics"
+        },
+        {
+            "raw_evt_type": "newfstatat",
+            "tier": "filtered",
+            "reason": "metadata query family"
+        },
+        {
+            "raw_evt_type": "fcntl",
+            "tier": "filtered",
+            "reason": "descriptor control"
+        },
+        {
+            "raw_evt_type": "ioctl",
+            "tier": "filtered",
+            "reason": "semantics heavily parameter-dependent"
+        },
+        {
+            "raw_evt_type": "getsockname",
+            "tier": "filtered",
+            "reason": "local endpoint query"
+        },
+        {
+            "raw_evt_type": "access",
+            "tier": "filtered",
+            "reason": "permission probe, weak causality"
+        }
+    ]
+}

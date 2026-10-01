@@ -1,0 +1,105 @@
+{
+  "schema_version": "dataset_release.v1.stage_labels",
+  "top_level_fields": [
+    "schema_version",
+    "scenario_id",
+    "chain_id",
+    "stage_vocabulary",
+    "gap_label",
+    "derivation",
+    "stage_spans",
+    "edge_stage_projection",
+    "compact_view",
+    "substage_hints",
+    "stats"
+  ],
+  "stage_vocabulary": [
+    "preparation",
+    "execution",
+    "result",
+    "stage_unclosed"
+  ],
+  "gap_label": "stage_unclosed",
+  "span_entry_fields": [
+    "stage",
+    "start_seq",
+    "end_seq",
+    "start_edge_id",
+    "end_edge_id",
+    "source"
+  ],
+  "projection_entry_fields": [
+    "edge_id",
+    "seq",
+    "stage"
+  ],
+  "compact_view_shape": {
+    "schema": "compact_span_view_v0",
+    "authority": "derived_from_stage_spans",
+    "supervision": "not_used",
+    "fields": {
+      "stage_vocabulary": "list[str] (preparation/execution/result/stage_unclosed)",
+      "spans[*]": {
+        "stage": "preparation | execution | result",
+        "start_seq": "int",
+        "end_seq": "int",
+        "edge_count": "int"
+      },
+      "stages_present": "list[str]",
+      "total_spine_edges": "int",
+      "covered_edge_count": "int",
+      "uncovered_edge_count": "int"
+    },
+    "mutates_existing_fields": false,
+    "affects_supervision": false
+  },
+  "rule_versions_known": [
+    "stage_derivation_v0.4.5"
+  ],
+  "result_rule_used_vocabulary": [
+    "no_result_anchor_no_result",
+    "no_anchor_subject_no_result",
+    "anchor_continuity_walker",
+    "anchor_continuity_walker_empty",
+    "anchor_continuity_walker_tier_b_extended",
+    "anchor_continuity_walker_exe_relaxation",
+    "anchor_at_spine_tail_single_edge_result"
+  ],
+  "prep_rule_used_vocabulary": [
+    "no_prep_end_marker_preparation_empty",
+    "prep_end_marker_latest",
+    "inferred_prep_pre_entry_same_subject_window",
+    "inferred_prep_pre_entry_same_exe_in_container_window",
+    "inferred_prep_pre_entry_same_subject_window_gap_tolerant",
+    "inferred_prep_pre_entry_same_exe_in_container_window_gap_tolerant"
+  ],
+  "result_walk_accepted_as_vocabulary": [
+    "result_like_same_subject",
+    "result_like_same_exe_in_container",
+    "tail_context_seed",
+    "post_result_shell_same_subject",
+    "post_result_shell_same_exe_in_container",
+    "anchor_at_spine_tail"
+  ],
+  "substage_hints_shape": {
+    "schema": "non_authoritative_hint_view_v0",
+    "authority": "non_authoritative",
+    "supervision": "not_used",
+    "source": "narrative_roles.v0.json/anchors",
+    "fields": {
+      "hints.entry_anchor_seq": "int | null",
+      "hints.result_anchor_seq": "int | null",
+      "hints.handoff_exec_seq": "int | null",
+      "hints_detail[*]": {
+        "name": "entry_anchor | result_anchor | handoff_exec",
+        "seq": "int",
+        "edge_id": "str",
+        "relation": "str | null",
+        "source_role": "semantic_entry_anchor | result_anchor | startup_handoff_exec",
+        "in_stage": "preparation | execution | result | stage_unclosed"
+      }
+    },
+    "mutates_existing_fields": false,
+    "affects_supervision": false
+  }
+}

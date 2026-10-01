@@ -1,0 +1,42 @@
+limit: null
+
+# These placeholders are overridden by the required public wrapper arguments.
+canonical_benchmark_root: annotation_workdir/canonical_benchmark
+annotation_context: assets/auxiliary_context/scenario_vulnerability_facts.annotation_context.v0.4.json
+workbench_dir: annotation_workdir/compact_annotation_workbench
+output_root: annotation_workdir/annotation_runs
+
+run_name_prefix: annotation_review_api
+provider: openai-compatible
+api_config_default: interactive
+use_env_api_config_requires_flag: true
+runtime_env_prefix: EWVAA_RUN_
+annotator_api_mode: chat_completions
+reviewer_api_mode: chat_completions
+base_url_env: OPENAI_BASE_URL
+api_key_env: OPENAI_API_KEY
+annotator_base_url_env: OPENAI_ANNOTATOR_BASE_URL
+annotator_api_key_env: OPENAI_ANNOTATOR_API_KEY
+annotator_api_mode_env: OPENAI_ANNOTATOR_API_MODE
+annotator_model_env: OPENAI_ANNOTATOR_MODEL
+reviewer_base_url_env: OPENAI_REVIEWER_BASE_URL
+reviewer_api_key_env: OPENAI_REVIEWER_API_KEY
+reviewer_api_mode_env: OPENAI_REVIEWER_API_MODE
+reviewer_model_env: OPENAI_REVIEWER_MODEL
+fallback_model_env: OPENAI_MODEL
+temperature: 0
+max_retries: 2
+timeout_seconds: 900
+hard_validation_required: true
+grounding_audit_required: true
+reviewer_revision_required: true
+
+final_acceptance:
+  allow_accept: true
+  allow_minor_revision: true
+  allow_major_revision: false
+  allow_reject: false
+  require_no_invalid: true
+  require_no_forbidden_strict_chain: true
+  require_no_cve_only_strict_chain: true
+  require_no_high_severity: true

@@ -1,0 +1,20 @@
+{
+  "name": "SecLog-Bench-216",
+  "version": "1.0.0",
+  "task": "window-level attack-stage prediction with evidence-grounded reasoning",
+  "sample_count": 216,
+  "stage_distribution": {
+    "preparation": 54,
+    "execution": 54,
+    "result": 54,
+    "stage_unclosed": 54
+  },
+  "reference_reasoning_structure": "free-form evidence-referenced claims; the bundled reference chain is organized into four review functions, but tested-model reasoning may be empty and does not have to use four steps",
+  "files": {
+    "data/sample_index.jsonl": "f48c9d511516de92ffa64bf02ab66e1a54fe1fab46f45d3368ef2e9783817f53",
+    "data/evidence_windows.jsonl": "7333ec850f3dcb3f372e241d028b448eab9b5667db364f204192ab8977bc7a28",
+    "data/gold_labels.jsonl": "09ffb74da6ff2e38360767bb7f5b96d4c9c6e5d12c588a737303ac78739a34a6",
+    "data/prompt_pack.jsonl": "b3871616610277833f66fd335e6932390a25dfe07894d6dad24b4701a02f5611",
+    "data/reference_reasoning_chains.jsonl": "363b60a49d23a08a1de5b34d3108ee8e1db353e77d3e41390c2f4d7b6e7dcac2"
+  }
+}

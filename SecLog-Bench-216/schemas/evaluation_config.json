@@ -1,0 +1,14 @@
+{
+  "allowed_labels": [
+    "preparation",
+    "execution",
+    "result",
+    "stage_unclosed"
+  ],
+  "gold_field": "gold_stage",
+  "join_key": "sample_id",
+  "prediction_field": "predicted_stage",
+  "require_evidence_refs": true,
+  "require_valid_json": true,
+  "seq_type_normalization": true
+}

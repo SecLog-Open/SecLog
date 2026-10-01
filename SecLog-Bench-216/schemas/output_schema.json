@@ -1,0 +1,17 @@
+{
+  "confidence": "number between 0.0 and 1.0",
+  "predicted_stage": "preparation | execution | result | stage_unclosed",
+  "reasoning_chain": [
+    {
+      "claim": "string",
+      "evidence_refs": [
+        {
+          "edge_id": "string",
+          "seq": "string_or_number"
+        }
+      ]
+    }
+  ],
+  "sample_id": "string",
+  "task_mode": "stage_prediction"
+}
