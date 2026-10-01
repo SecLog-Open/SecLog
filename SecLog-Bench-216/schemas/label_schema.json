@@ -1,0 +1,14 @@
+{
+  "label_meanings": {
+    "execution": "visible evidence supports a concrete attack-relevant operation against a target, object, endpoint, file, process, database action, or network action",
+    "preparation": "visible evidence supports a pre-action function such as probing, reachability checking, access-path exploration, target/service identification, configuration or credential checking, or positioning before a concrete operation",
+    "result": "visible evidence supports an observable downstream effect of attack activity, such as returned-content proxy, response-completion effect, delivered data, artifact creation or modification, state change, exfiltration/send effect, or comparable post-operation consequence",
+    "stage_unclosed": "attack-related but visible evidence does not safely close preparation, execution, or result"
+  },
+  "labels": [
+    "preparation",
+    "execution",
+    "result",
+    "stage_unclosed"
+  ]
+}

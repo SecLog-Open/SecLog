@@ -1,0 +1,216 @@
+{"sample_id":"sample_000001","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":14,"start_seq":10}}
+{"sample_id":"sample_000002","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":14,"start_seq":10}}
+{"sample_id":"sample_000003","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":17,"start_seq":11}}
+{"sample_id":"sample_000004","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":17,"start_seq":11}}
+{"sample_id":"sample_000005","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":17,"start_seq":11}}
+{"sample_id":"sample_000006","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":17,"start_seq":11}}
+{"sample_id":"sample_000007","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":1185,"start_seq":1181}}
+{"sample_id":"sample_000008","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":1185,"start_seq":1181}}
+{"sample_id":"sample_000009","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":11,"start_seq":7}}
+{"sample_id":"sample_000010","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":11,"start_seq":7}}
+{"sample_id":"sample_000011","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":14,"start_seq":10}}
+{"sample_id":"sample_000012","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":14,"start_seq":10}}
+{"sample_id":"sample_000013","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":12,"start_seq":8}}
+{"sample_id":"sample_000014","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":12,"start_seq":8}}
+{"sample_id":"sample_000015","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":47,"start_seq":43}}
+{"sample_id":"sample_000016","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":19,"start_seq":12}}
+{"sample_id":"sample_000017","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":30,"start_seq":15}}
+{"sample_id":"sample_000018","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":28,"start_seq":13}}
+{"sample_id":"sample_000019","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":43,"start_seq":15}}
+{"sample_id":"sample_000020","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":27,"start_seq":18}}
+{"sample_id":"sample_000021","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":20,"start_seq":18}}
+{"sample_id":"sample_000022","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":31,"start_seq":28}}
+{"sample_id":"sample_000023","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":83,"start_seq":15}}
+{"sample_id":"sample_000024","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":1272,"start_seq":1186}}
+{"sample_id":"sample_000025","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":172,"start_seq":84}}
+{"sample_id":"sample_000026","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":5812,"start_seq":3}}
+{"sample_id":"sample_000027","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":747,"start_seq":1}}
+{"sample_id":"sample_000028","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":292,"start_seq":292}}
+{"sample_id":"sample_000029","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":292,"start_seq":292}}
+{"sample_id":"sample_000030","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":35,"start_seq":34}}
+{"sample_id":"sample_000031","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":54,"start_seq":49}}
+{"sample_id":"sample_000032","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":25,"start_seq":20}}
+{"sample_id":"sample_000033","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":16,"start_seq":1}}
+{"sample_id":"sample_000034","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":19,"start_seq":1}}
+{"sample_id":"sample_000035","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":48,"start_seq":33}}
+{"sample_id":"sample_000036","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":8,"start_seq":4}}
+{"sample_id":"sample_000037","gold_stage":"preparation","supportability_tier":"strong","window":{"end_seq":2421,"start_seq":2417}}
+{"sample_id":"sample_000038","gold_stage":"preparation","supportability_tier":"moderate","window":{"end_seq":17,"start_seq":13}}
+{"sample_id":"sample_000039","gold_stage":"preparation","supportability_tier":"moderate","window":{"end_seq":2436,"start_seq":2432}}
+{"sample_id":"sample_000040","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":32,"start_seq":28}}
+{"sample_id":"sample_000041","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":2442,"start_seq":2438}}
+{"sample_id":"sample_000042","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":286,"start_seq":282}}
+{"sample_id":"sample_000043","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":389,"start_seq":385}}
+{"sample_id":"sample_000044","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":409,"start_seq":405}}
+{"sample_id":"sample_000045","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":1014,"start_seq":1010}}
+{"sample_id":"sample_000046","gold_stage":"execution","supportability_tier":"strong","window":{"end_seq":1044,"start_seq":1040}}
+{"sample_id":"sample_000047","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":2402,"start_seq":2398}}
+{"sample_id":"sample_000048","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":1146,"start_seq":1142}}
+{"sample_id":"sample_000049","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":2411,"start_seq":2407}}
+{"sample_id":"sample_000050","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":27179,"start_seq":27175}}
+{"sample_id":"sample_000051","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":34471,"start_seq":34467}}
+{"sample_id":"sample_000052","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":68222,"start_seq":68218}}
+{"sample_id":"sample_000053","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":68600,"start_seq":68596}}
+{"sample_id":"sample_000054","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":79092,"start_seq":79088}}
+{"sample_id":"sample_000055","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":27191,"start_seq":27187}}
+{"sample_id":"sample_000056","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":35,"start_seq":31}}
+{"sample_id":"sample_000057","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":27186,"start_seq":27182}}
+{"sample_id":"sample_000058","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"end_seq":26981,"start_seq":26977}}
+{"sample_id":"sample_000059","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":40,"start_seq":36}}
+{"sample_id":"sample_000060","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":70,"start_seq":66}}
+{"sample_id":"sample_000061","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":25,"start_seq":21}}
+{"sample_id":"sample_000062","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":20,"start_seq":16}}
+{"sample_id":"sample_000063","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":25,"start_seq":21}}
+{"sample_id":"sample_000064","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":45,"start_seq":41}}
+{"sample_id":"sample_000065","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":30,"start_seq":26}}
+{"sample_id":"sample_000066","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":2391,"start_seq":2385}}
+{"sample_id":"sample_000067","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":1715,"start_seq":1711}}
+{"sample_id":"sample_000068","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":1627,"start_seq":1622}}
+{"sample_id":"sample_000069","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":1533,"start_seq":1528}}
+{"sample_id":"sample_000070","gold_stage":"result","supportability_tier":"moderate","window":{"end_seq":13,"start_seq":7}}
+{"sample_id":"sample_000071","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":38,"start_seq":32}}
+{"sample_id":"sample_000072","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":28,"start_seq":24}}
+{"sample_id":"sample_000073","gold_stage":"result","supportability_tier":"strong","window":{"end_seq":41,"start_seq":36}}
+{"sample_id":"sample_000074","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":100,"start_seq":96}}
+{"sample_id":"sample_000075","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":110,"start_seq":106}}
+{"sample_id":"sample_000076","gold_stage":"stage_unclosed","supportability_tier":"moderate","window":{"end_seq":90,"start_seq":86}}
+{"sample_id":"sample_000077","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":2,"end_seq":607,"start_seq":606,"time_range":"2026-04-21 16:31:49.602831367 -> 2026-04-21 16:31:49.602844680"}}
+{"sample_id":"sample_000078","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":2,"start_seq":1,"time_range":"2026-04-21 12:42:55.659925599 -> 2026-04-21 12:42:55.660240897"}}
+{"sample_id":"sample_000079","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":6,"start_seq":1,"time_range":"2026-04-21 09:33:35.575513936 -> 2026-04-21 09:34:56.256694677"}}
+{"sample_id":"sample_000080","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":2,"end_seq":36,"start_seq":35,"time_range":"2026-04-21 12:45:19.038256039 -> 2026-04-21 12:45:19.038545652"}}
+{"sample_id":"sample_000081","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":2,"end_seq":634,"start_seq":633,"time_range":"2026-04-21 16:31:49.966016751 -> 2026-04-21 16:31:49.966022082"}}
+{"sample_id":"sample_000082","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":4,"start_seq":3,"time_range":"2026-04-21 12:43:05.916426411 -> 2026-04-21 12:43:05.916801329"}}
+{"sample_id":"sample_000083","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":681,"start_seq":676,"time_range":"2026-04-21 16:31:51.300727455 -> 2026-04-21 16:31:52.025078177"}}
+{"sample_id":"sample_000084","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":2,"end_seq":25,"start_seq":24,"time_range":"2026-04-21 11:43:08.096002368 -> 2026-04-21 11:43:08.096111122"}}
+{"sample_id":"sample_000085","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":2,"end_seq":673,"start_seq":672,"time_range":"2026-04-21 16:31:51.300317680 -> 2026-04-21 16:31:51.300324072"}}
+{"sample_id":"sample_000086","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":6,"start_seq":5,"time_range":"2026-04-21 12:43:16.161641840 -> 2026-04-21 12:43:16.162153122"}}
+{"sample_id":"sample_000087","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":666,"start_seq":661,"time_range":"2026-04-21 16:31:51.008724603 -> 2026-04-21 16:31:51.147006698"}}
+{"sample_id":"sample_000088","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":3,"end_seq":70,"start_seq":68,"time_range":"2026-04-21 09:34:56.268695927 -> 2026-04-21 09:34:56.268711097"}}
+{"sample_id":"sample_000089","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":2,"end_seq":58556,"start_seq":58555,"time_range":"2026-04-21 10:53:34.703625670 -> 2026-04-21 10:53:34.703788860"}}
+{"sample_id":"sample_000090","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":2,"start_seq":1,"time_range":"2026-04-21 12:22:44.394929399 -> 2026-04-21 12:22:45.415955897"}}
+{"sample_id":"sample_000091","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":202,"start_seq":197,"time_range":"2026-04-21 09:31:26.114307202 -> 2026-04-21 09:31:26.114676947"}}
+{"sample_id":"sample_000092","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":3,"end_seq":77,"start_seq":75,"time_range":"2026-04-21 09:31:25.097955948 -> 2026-04-21 09:31:25.098099826"}}
+{"sample_id":"sample_000093","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":2,"end_seq":98653,"start_seq":98652,"time_range":"2026-04-21 10:53:48.457963262 -> 2026-04-21 10:53:48.458188062"}}
+{"sample_id":"sample_000094","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":11,"start_seq":10,"time_range":"2026-04-21 11:21:48.677263300 -> 2026-04-21 11:21:48.677292555"}}
+{"sample_id":"sample_000095","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":690,"start_seq":685,"time_range":"2026-04-21 09:31:38.171208217 -> 2026-04-21 09:31:38.172181803"}}
+{"sample_id":"sample_000096","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":3,"end_seq":152,"start_seq":150,"time_range":"2026-04-21 09:31:26.112057518 -> 2026-04-21 09:31:26.112146314"}}
+{"sample_id":"sample_000097","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":226,"start_seq":221,"time_range":"2026-04-21 09:34:56.276734746 -> 2026-04-21 09:34:56.276858946"}}
+{"sample_id":"sample_000098","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":27,"start_seq":26,"time_range":"2026-04-21 10:40:19.117297807 -> 2026-04-21 10:40:22.183201110"}}
+{"sample_id":"sample_000099","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":27181,"start_seq":27176,"time_range":"2026-04-21 09:50:37.409159911 -> 2026-04-21 09:50:37.409375060"}}
+{"sample_id":"sample_000100","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":3,"end_seq":229,"start_seq":227,"time_range":"2026-04-21 09:31:29.120010135 -> 2026-04-21 09:31:29.120078678"}}
+{"sample_id":"sample_000101","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":222,"start_seq":217,"time_range":"2026-04-21 09:34:56.276530659 -> 2026-04-21 09:34:56.276738782"}}
+{"sample_id":"sample_000102","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":35,"start_seq":34,"time_range":"2026-04-21 10:40:29.000271122 -> 2026-04-21 10:40:29.002870346"}}
+{"sample_id":"sample_000103","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":27026,"start_seq":27021,"time_range":"2026-04-21 09:50:37.383820993 -> 2026-04-21 09:50:37.384290815"}}
+{"sample_id":"sample_000104","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":17297,"start_seq":17293,"time_range":"2026-04-21 10:53:23.004625870 -> 2026-04-21 10:53:23.004799010"}}
+{"sample_id":"sample_000105","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":174,"start_seq":169,"time_range":"2026-04-21 09:34:56.274956412 -> 2026-04-21 09:34:56.275253516"}}
+{"sample_id":"sample_000106","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":39,"start_seq":38,"time_range":"2026-04-21 10:40:38.710552603 -> 2026-04-21 10:40:38.712632584"}}
+{"sample_id":"sample_000107","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":26991,"start_seq":26986,"time_range":"2026-04-21 09:50:37.368488323 -> 2026-04-21 09:50:37.368964843"}}
+{"sample_id":"sample_000108","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":22740,"start_seq":22736,"time_range":"2026-04-21 10:53:25.113721879 -> 2026-04-21 10:53:25.114919876"}}
+{"sample_id":"sample_000109","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":6,"start_seq":1,"time_range":"2026-04-21 09:31:24.091455525 -> 2026-04-21 09:31:24.091581885"}}
+{"sample_id":"sample_000110","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":2,"end_seq":15,"start_seq":14,"time_range":"2026-04-21 10:43:38.496650286 -> 2026-04-21 10:43:38.713334293"}}
+{"sample_id":"sample_000111","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":21,"start_seq":16,"time_range":"2026-04-21 10:48:40.723067627 -> 2026-04-21 10:49:24.296468747"}}
+{"sample_id":"sample_000112","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":27548,"start_seq":27544,"time_range":"2026-04-21 10:53:26.205890610 -> 2026-04-21 10:53:26.206106307"}}
+{"sample_id":"sample_000113","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":635,"start_seq":630,"time_range":"2026-04-21 09:31:36.160993887 -> 2026-04-21 09:31:38.164859627"}}
+{"sample_id":"sample_000114","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":739,"start_seq":737,"time_range":"2026-04-21 16:31:58.644097346 -> 2026-04-21 16:31:58.644501845"}}
+{"sample_id":"sample_000115","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":463,"start_seq":458,"time_range":"2026-04-21 10:49:25.070140830 -> 2026-04-21 10:49:26.383118611"}}
+{"sample_id":"sample_000116","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":6,"end_seq":68,"start_seq":63,"time_range":"2026-04-21 09:34:56.268500935 -> 2026-04-21 09:34:56.268695927"}}
+{"sample_id":"sample_000117","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":27191,"start_seq":27186,"time_range":"2026-04-21 09:51:01.331761686 -> 2026-04-21 09:51:39.676725854"}}
+{"sample_id":"sample_000118","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":1111,"start_seq":1109,"time_range":"2026-04-21 16:32:47.544007204 -> 2026-04-21 16:32:47.549751109"}}
+{"sample_id":"sample_000119","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":612,"start_seq":607,"time_range":"2026-04-21 10:50:19.388980145 -> 2026-04-21 10:50:21.458507227"}}
+{"sample_id":"sample_000120","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":6,"end_seq":18,"start_seq":13,"time_range":"2026-04-21 10:39:26.536670310 -> 2026-04-21 10:39:38.817573102"}}
+{"sample_id":"sample_000121","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":225,"start_seq":220,"time_range":"2026-04-21 12:28:42.253062965 -> 2026-04-21 12:28:42.253204448"}}
+{"sample_id":"sample_000122","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":89,"start_seq":87,"time_range":"2026-04-21 09:43:53.885740520 -> 2026-04-21 09:43:57.332990897"}}
+{"sample_id":"sample_000123","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":373,"start_seq":368,"time_range":"2026-04-21 12:10:13.307218373 -> 2026-04-21 12:10:13.307507127"}}
+{"sample_id":"sample_000124","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":1,"end_seq":32,"start_seq":32,"time_range":"2026-04-21 10:40:23.054294475 -> 2026-04-21 10:40:23.054294475"}}
+{"sample_id":"sample_000125","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":221,"start_seq":216,"time_range":"2026-04-21 12:28:40.795691034 -> 2026-04-21 12:28:42.253089101"}}
+{"sample_id":"sample_000126","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":67,"start_seq":65,"time_range":"2026-04-21 09:46:59.342805598 -> 2026-04-21 09:47:02.533165411"}}
+{"sample_id":"sample_000127","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":6,"start_seq":1,"time_range":"2026-04-21 12:09:11.240406738 -> 2026-04-21 12:10:13.250274772"}}
+{"sample_id":"sample_000128","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":3,"end_seq":55,"start_seq":53,"time_range":"2026-04-21 09:34:56.267600681 -> 2026-04-21 09:34:56.267605435"}}
+{"sample_id":"sample_000129","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":13,"start_seq":8,"time_range":"2026-04-21 12:23:10.727071523 -> 2026-04-21 12:23:40.400666790"}}
+{"sample_id":"sample_000130","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":70,"start_seq":68,"time_range":"2026-04-21 09:47:09.398433721 -> 2026-04-21 09:47:10.654529119"}}
+{"sample_id":"sample_000131","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":194,"start_seq":189,"time_range":"2026-04-21 12:28:40.235882479 -> 2026-04-21 12:28:40.250120887"}}
+{"sample_id":"sample_000132","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":3,"end_seq":28,"start_seq":26,"time_range":"2026-04-21 11:43:08.100765187 -> 2026-04-21 11:43:08.319949989"}}
+{"sample_id":"sample_000133","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":93,"start_seq":88,"time_range":"2026-04-21 12:24:01.085536022 -> 2026-04-21 12:24:30.399908024"}}
+{"sample_id":"sample_000134","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":94,"start_seq":92,"time_range":"2026-04-21 09:47:49.650562152 -> 2026-04-21 09:47:53.461476720"}}
+{"sample_id":"sample_000135","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":13,"start_seq":8,"time_range":"2026-04-21 10:17:54.524376293 -> 2026-04-21 10:17:54.691728767"}}
+{"sample_id":"sample_000136","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":27055,"start_seq":27051,"time_range":"2026-04-21 09:50:37.405580657 -> 2026-04-21 09:50:37.405883086"}}
+{"sample_id":"sample_000137","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":97,"start_seq":92,"time_range":"2026-04-21 12:24:21.222772883 -> 2026-04-21 12:24:50.405598239"}}
+{"sample_id":"sample_000138","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":9,"start_seq":7,"time_range":"2026-04-21 09:54:01.633468617 -> 2026-04-21 09:54:03.332856924"}}
+{"sample_id":"sample_000139","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":1274,"start_seq":1269,"time_range":"2026-04-21 12:32:41.772613627 -> 2026-04-21 12:32:41.877843715"}}
+{"sample_id":"sample_000140","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":27090,"start_seq":27086,"time_range":"2026-04-21 09:50:37.406842117 -> 2026-04-21 09:50:37.406893517"}}
+{"sample_id":"sample_000141","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":18,"start_seq":13,"time_range":"2026-04-21 10:31:41.248564658 -> 2026-04-21 10:32:15.276985322"}}
+{"sample_id":"sample_000142","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":16,"start_seq":14,"time_range":"2026-04-21 09:54:21.874084877 -> 2026-04-21 09:54:29.047422399"}}
+{"sample_id":"sample_000143","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":1204,"start_seq":1199,"time_range":"2026-04-21 12:32:39.748155285 -> 2026-04-21 12:32:39.889737702"}}
+{"sample_id":"sample_000144","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":27112,"start_seq":27108,"time_range":"2026-04-21 09:50:37.407646614 -> 2026-04-21 09:50:37.407846030"}}
+{"sample_id":"sample_000145","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":26,"start_seq":21,"time_range":"2026-04-21 10:36:21.592808252 -> 2026-04-21 10:37:12.059976187"}}
+{"sample_id":"sample_000146","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":41,"start_seq":39,"time_range":"2026-04-21 10:18:12.233913521 -> 2026-04-21 10:18:12.421168780"}}
+{"sample_id":"sample_000147","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":17,"start_seq":12,"time_range":"2026-04-21 12:31:37.971472476 -> 2026-04-21 12:31:38.142437027"}}
+{"sample_id":"sample_000148","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":60,"start_seq":56,"time_range":"2026-04-21 10:49:24.302748885 -> 2026-04-21 10:49:24.302910068"}}
+{"sample_id":"sample_000149","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":17,"start_seq":12,"time_range":"2026-04-21 10:35:31.185133527 -> 2026-04-21 10:36:11.508203690"}}
+{"sample_id":"sample_000150","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":45,"start_seq":43,"time_range":"2026-04-21 10:18:32.740621252 -> 2026-04-21 10:18:34.284245869"}}
+{"sample_id":"sample_000151","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":1015,"start_seq":1010,"time_range":"2026-04-21 12:37:20.285376362 -> 2026-04-21 12:37:20.288081146"}}
+{"sample_id":"sample_000152","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":520,"start_seq":516,"time_range":"2026-04-21 12:14:23.585599226 -> 2026-04-21 12:14:23.585835599"}}
+{"sample_id":"sample_000153","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":6,"end_seq":25,"start_seq":20,"time_range":"2026-04-21 10:39:48.872159467 -> 2026-04-21 10:40:19.012504060"}}
+{"sample_id":"sample_000154","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":65,"start_seq":63,"time_range":"2026-04-21 10:19:03.522498365 -> 2026-04-21 10:19:08.120983375"}}
+{"sample_id":"sample_000155","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":1045,"start_seq":1040,"time_range":"2026-04-21 12:37:20.302352386 -> 2026-04-21 12:37:20.302590924"}}
+{"sample_id":"sample_000156","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":5,"end_seq":1630,"start_seq":1626,"time_range":"2026-04-21 12:14:25.649119708 -> 2026-04-21 12:14:25.649361301"}}
+{"sample_id":"sample_000157","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":80896,"start_seq":80896,"time_range":"2026-04-21 10:53:41.503494902 -> 2026-04-21 10:53:41.503494902"}}
+{"sample_id":"sample_000158","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":7,"start_seq":5,"time_range":"2026-04-21 11:10:01.968487318 -> 2026-04-21 11:10:03.452874817"}}
+{"sample_id":"sample_000159","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":904,"start_seq":899,"time_range":"2026-04-21 12:37:20.239925624 -> 2026-04-21 12:37:20.242255353"}}
+{"sample_id":"sample_000160","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":1,"end_seq":5,"start_seq":5,"time_range":"2026-04-21 11:00:16.169060864 -> 2026-04-21 11:00:16.169060864"}}
+{"sample_id":"sample_000161","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":307,"start_seq":307,"time_range":"2026-04-21 09:39:24.495728903 -> 2026-04-21 09:39:24.495728903"}}
+{"sample_id":"sample_000162","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":32,"start_seq":30,"time_range":"2026-04-21 11:11:25.046977029 -> 2026-04-21 11:11:29.199995562"}}
+{"sample_id":"sample_000163","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":6,"end_seq":238,"start_seq":233,"time_range":"2026-04-21 10:44:38.949766913 -> 2026-04-21 10:44:40.216133733"}}
+{"sample_id":"sample_000164","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":1,"end_seq":21,"start_seq":21,"time_range":"2026-04-21 11:00:56.237815049 -> 2026-04-21 11:00:56.237815049"}}
+{"sample_id":"sample_000165","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":485,"start_seq":485,"time_range":"2026-04-21 09:39:25.537793506 -> 2026-04-21 09:39:25.537793506"}}
+{"sample_id":"sample_000166","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":8,"start_seq":6,"time_range":"2026-04-21 11:53:26.500612234 -> 2026-04-21 11:53:32.924950939"}}
+{"sample_id":"sample_000167","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":8,"end_seq":1147,"start_seq":1140,"time_range":"2026-04-21 12:14:23.618313198 -> 2026-04-21 12:14:23.618774572"}}
+{"sample_id":"sample_000168","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":1,"end_seq":4,"start_seq":4,"time_range":"2026-04-21 11:09:51.537627459 -> 2026-04-21 11:09:51.537627459"}}
+{"sample_id":"sample_000169","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":663,"start_seq":663,"time_range":"2026-04-21 09:39:26.575339257 -> 2026-04-21 09:39:26.575339257"}}
+{"sample_id":"sample_000170","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":13,"start_seq":11,"time_range":"2026-04-21 11:53:50.254154538 -> 2026-04-21 11:53:50.772386377"}}
+{"sample_id":"sample_000171","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":9,"end_seq":2384,"start_seq":2376,"time_range":"2026-04-21 12:05:03.690107967 -> 2026-04-21 12:05:17.170294097"}}
+{"sample_id":"sample_000172","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":1,"end_seq":8,"start_seq":8,"time_range":"2026-04-21 11:42:35.243965509 -> 2026-04-21 11:42:35.243965509"}}
+{"sample_id":"sample_000173","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":40,"start_seq":40,"time_range":"2026-04-21 12:05:02.898018446 -> 2026-04-21 12:05:02.898018446"}}
+{"sample_id":"sample_000174","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":5,"start_seq":3,"time_range":"2026-04-21 11:31:22.813585796 -> 2026-04-21 11:31:30.185490356"}}
+{"sample_id":"sample_000175","gold_stage":"result","supportability_tier":"strong","window":{"edge_count":9,"end_seq":2413,"start_seq":2405,"time_range":"2026-04-21 12:14:25.688878281 -> 2026-04-21 12:14:25.689335817"}}
+{"sample_id":"sample_000176","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":1,"end_seq":19,"start_seq":19,"time_range":"2026-04-21 10:39:48.063007390 -> 2026-04-21 10:39:48.063007390"}}
+{"sample_id":"sample_000177","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":2,"start_seq":2,"time_range":"2026-04-21 12:28:39.844783960 -> 2026-04-21 12:28:39.844783960"}}
+{"sample_id":"sample_000178","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":11,"start_seq":9,"time_range":"2026-04-21 11:31:43.676170149 -> 2026-04-21 11:31:50.228294544"}}
+{"sample_id":"sample_000179","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":2159,"start_seq":2154,"time_range":"2026-04-21 12:05:03.594619502 -> 2026-04-21 12:05:03.594626699"}}
+{"sample_id":"sample_000180","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":1,"end_seq":48,"start_seq":48,"time_range":"2026-04-21 10:43:59.412362022 -> 2026-04-21 10:43:59.412362022"}}
+{"sample_id":"sample_000181","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":22,"start_seq":22,"time_range":"2026-04-21 11:00:56.814579238 -> 2026-04-21 11:00:56.814579238"}}
+{"sample_id":"sample_000182","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":17,"start_seq":15,"time_range":"2026-04-21 11:42:49.243715003 -> 2026-04-21 11:42:50.769248467"}}
+{"sample_id":"sample_000183","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":2107,"start_seq":2102,"time_range":"2026-04-21 12:05:03.593356870 -> 2026-04-21 12:05:03.593364108"}}
+{"sample_id":"sample_000184","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":1,"end_seq":63,"start_seq":63,"time_range":"2026-04-21 10:44:05.409702664 -> 2026-04-21 10:44:05.409702664"}}
+{"sample_id":"sample_000185","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":1277,"start_seq":1277,"time_range":"2026-04-21 12:32:41.881420975 -> 2026-04-21 12:32:41.881420975"}}
+{"sample_id":"sample_000186","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":43,"start_seq":41,"time_range":"2026-04-21 11:43:10.074550098 -> 2026-04-21 11:43:10.493045795"}}
+{"sample_id":"sample_000187","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":38,"start_seq":33,"time_range":"2026-04-21 12:14:18.898316385 -> 2026-04-21 12:14:23.557821221"}}
+{"sample_id":"sample_000188","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":1,"end_seq":186,"start_seq":186,"time_range":"2026-04-21 10:44:30.552758289 -> 2026-04-21 10:44:30.552758289"}}
+{"sample_id":"sample_000189","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":1074,"start_seq":1074,"time_range":"2026-04-21 12:37:20.618236085 -> 2026-04-21 12:37:20.618236085"}}
+{"sample_id":"sample_000190","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":1185,"start_seq":1183,"time_range":"2026-04-21 12:32:39.626820934 -> 2026-04-21 12:32:39.631231507"}}
+{"sample_id":"sample_000191","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":38,"start_seq":33,"time_range":"2026-04-21 10:32:32.575836476 -> 2026-04-21 10:33:12.012151656"}}
+{"sample_id":"sample_000192","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":5,"end_seq":261,"start_seq":257,"time_range":"2026-04-21 12:28:42.347144613 -> 2026-04-21 12:28:42.347168844"}}
+{"sample_id":"sample_000193","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":1,"start_seq":1,"time_range":"2026-04-21 09:42:46.005633765 -> 2026-04-21 09:42:46.005633765"}}
+{"sample_id":"sample_000194","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":853,"start_seq":851,"time_range":"2026-04-21 12:37:20.018848435 -> 2026-04-21 12:37:20.019310244"}}
+{"sample_id":"sample_000195","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":34,"start_seq":29,"time_range":"2026-04-21 10:32:17.529950982 -> 2026-04-21 10:32:32.575905833"}}
+{"sample_id":"sample_000196","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":256,"start_seq":251,"time_range":"2026-04-21 12:28:42.319059725 -> 2026-04-21 12:28:42.342047375"}}
+{"sample_id":"sample_000197","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":2,"start_seq":2,"time_range":"2026-04-21 09:46:10.120680236 -> 2026-04-21 09:46:10.120680236"}}
+{"sample_id":"sample_000198","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":3,"end_seq":871,"start_seq":869,"time_range":"2026-04-21 12:37:20.192862165 -> 2026-04-21 12:37:20.193060334"}}
+{"sample_id":"sample_000199","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":6,"start_seq":1,"time_range":"2026-04-21 10:31:12.425487666 -> 2026-04-21 10:31:17.898471582"}}
+{"sample_id":"sample_000200","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":55,"start_seq":50,"time_range":"2026-04-21 12:23:46.455277518 -> 2026-04-21 12:23:46.487311315"}}
+{"sample_id":"sample_000201","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":107,"start_seq":107,"time_range":"2026-04-21 12:05:02.908776413 -> 2026-04-21 12:05:02.908776413"}}
+{"sample_id":"sample_000202","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":4,"end_seq":1073,"start_seq":1070,"time_range":"2026-04-21 12:37:20.604785982 -> 2026-04-21 12:37:20.604994334"}}
+{"sample_id":"sample_000203","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":22,"start_seq":17,"time_range":"2026-04-21 10:36:11.508203690 -> 2026-04-21 10:36:31.714630294"}}
+{"sample_id":"sample_000204","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":30,"start_seq":25,"time_range":"2026-04-21 11:53:58.558506152 -> 2026-04-21 11:53:58.558644496"}}
+{"sample_id":"sample_000205","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":629,"start_seq":629,"time_range":"2026-04-21 12:05:03.009659478 -> 2026-04-21 12:05:03.009659478"}}
+{"sample_id":"sample_000206","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":4,"end_seq":132,"start_seq":129,"time_range":"2026-04-21 10:44:23.833174453 -> 2026-04-21 10:44:23.985625003"}}
+{"sample_id":"sample_000207","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":6,"start_seq":1,"time_range":"2026-04-21 10:35:10.898922268 -> 2026-04-21 10:35:16.743006277"}}
+{"sample_id":"sample_000208","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":28,"start_seq":23,"time_range":"2026-04-21 11:22:04.573254320 -> 2026-04-21 11:22:04.573411247"}}
+{"sample_id":"sample_000209","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":1,"start_seq":1,"time_range":"2026-04-21 12:31:36.534217956 -> 2026-04-21 12:31:36.534217956"}}
+{"sample_id":"sample_000210","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":5,"end_seq":109,"start_seq":105,"time_range":"2026-04-21 09:44:34.110710226 -> 2026-04-21 09:44:37.092150589"}}
+{"sample_id":"sample_000211","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":71,"start_seq":66,"time_range":"2026-04-21 10:44:06.961427011 -> 2026-04-21 10:44:13.299503255"}}
+{"sample_id":"sample_000212","gold_stage":"stage_unclosed","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":24,"start_seq":19,"time_range":"2026-04-21 11:22:04.400779539 -> 2026-04-21 11:22:04.573293659"}}
+{"sample_id":"sample_000213","gold_stage":"preparation","supportability_tier":"strong","window":{"edge_count":1,"end_seq":1186,"start_seq":1186,"time_range":"2026-04-21 12:32:39.743676432 -> 2026-04-21 12:32:39.743676432"}}
+{"sample_id":"sample_000214","gold_stage":"execution","supportability_tier":"strong","window":{"edge_count":5,"end_seq":6,"start_seq":2,"time_range":"2026-04-21 09:53:52.346479642 -> 2026-04-21 09:53:56.074119742"}}
+{"sample_id":"sample_000215","gold_stage":"result","supportability_tier":"usable_needs_review","window":{"edge_count":6,"end_seq":14,"start_seq":9,"time_range":"2026-04-21 09:38:43.518366779 -> 2026-04-21 09:38:44.889329059"}}
+{"sample_id":"sample_000216","gold_stage":"stage_unclosed","supportability_tier":"strong","window":{"edge_count":3,"end_seq":385,"start_seq":383,"time_range":"2026-04-21 09:31:34.140186772 -> 2026-04-21 09:31:34.140252297"}}

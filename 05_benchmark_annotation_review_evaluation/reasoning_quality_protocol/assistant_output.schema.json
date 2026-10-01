@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SecLog-Bench evidence-bound assistant output",
+  "type": "object",
+  "required": ["sample_id", "blind_model_id", "assistant_id", "claim_checks", "closure_check"],
+  "properties": {
+    "sample_id": {"type": "string"},
+    "blind_model_id": {"type": "string"},
+    "assistant_id": {"type": "string"},
+    "claim_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["reasoning_unit_id", "claim_type", "evidence_support", "evidence_support_score", "stage_condition_alignment", "evidence_ref_validity"],
+        "properties": {
+          "reasoning_unit_id": {"type": "string"},
+          "claim_type": {"type": "string"},
+          "is_substantive_claim": {"type": "boolean"},
+          "evidence_support": {"enum": ["fully_supported", "partially_supported", "unsupported", "contradicted", "unverifiable"]},
+          "evidence_support_score": {"type": "number", "minimum": 0, "maximum": 1},
+          "stage_condition_alignment": {"type": "number", "minimum": 0, "maximum": 1},
+          "evidence_ref_validity": {"enum": ["valid", "invalid", "missing_refs"]},
+          "critical_evidence_error": {"type": "boolean"},
+          "contradiction": {"type": "boolean"},
+          "hidden_evidence_use": {"type": "boolean"},
+          "out_of_window_evidence": {"type": "boolean"},
+          "overstatement_level": {"enum": ["none", "minor", "major"]}
+        }
+      }
+    },
+    "closure_check": {
+      "type": "object",
+      "required": ["stage_closure_coverage_score", "boundary_discipline", "checklist_coverage"],
+      "properties": {
+        "stage_closure_coverage_score": {"type": "number", "minimum": 0, "maximum": 1},
+        "boundary_discipline": {"enum": ["sound", "minor_issue", "severe_boundary_error"]},
+        "sample_level_critical_evidence_error": {"type": "boolean"},
+        "sample_level_invalid_evidence_refs": {"type": "boolean"},
+        "checklist_coverage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["condition_id", "coverage", "covered_by_reasoning_unit_ids"],
+            "properties": {
+              "condition_id": {"type": "string"},
+              "importance": {"enum": ["key", "optional"]},
+              "coverage": {"enum": ["full", "partial", "none"]},
+              "covered_by_reasoning_unit_ids": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        }
+      }
+    }
+  }
+}

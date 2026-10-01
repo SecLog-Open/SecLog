@@ -1,0 +1,144 @@
+{
+  "schema_version": "dataset_release.v1.main_sample",
+  "top_level_fields": [
+    "schema_version",
+    "scenario_id",
+    "chain_id",
+    "spine",
+    "_join_stats"
+  ],
+  "spine_entry_fields": [
+    "seq",
+    "edge_id",
+    "subject",
+    "relation",
+    "object",
+    "attrs",
+    "audit_context",
+    "multisource_context"
+  ],
+  "spine_attrs_whitelist": [
+    "evt_num",
+    "timestamp",
+    "raw_evt_type",
+    "container_id",
+    "fd_name",
+    "malicious"
+  ],
+  "forbidden_in_main_sample": [
+    "narrative_role",
+    "narrative_role_alt",
+    "stage",
+    "stage_segments",
+    "substage_segments",
+    "expression_clarity",
+    "semantic_narrative_summary"
+  ],
+  "applog_entry_derived_fields": {
+    "attack_relevance_tier": {
+      "vocabulary": [
+        "attack_related",
+        "error_or_hv",
+        "background"
+      ],
+      "derivation": "attack_related if is_attack_related is truthy; otherwise error_or_hv when semantic_type in {error_exception, db_query, generic_runtime_log}; otherwise background",
+      "mutates_existing_fields": false
+    }
+  },
+  "audit_context_entry_slim_policy": {
+    "dropped_top_level_fields": [
+      {
+        "name": "link_features",
+        "reason": "Attachment-judgement details are not required by the model-facing record. The public attachment decision fields remain available."
+      }
+    ],
+    "dropped_inner_event_fields_unconditional": [
+      {
+        "name": "event.record_mode",
+        "reason": "The outer attachment record_mode identifies the record representation used by consumers."
+      }
+    ],
+    "dropped_inner_event_fields_when_redundant": [
+      {
+        "name": "event.proc",
+        "keep_fields": [
+          "container_id",
+          "pid",
+          "name",
+          "exepath"
+        ],
+        "reason": "Repeated process attributes are omitted when the corresponding event attributes are identical; differing or unknown values remain available."
+      },
+      {
+        "name": "event.fd",
+        "keep_fields": [
+          "name",
+          "type"
+        ],
+        "reason": "Repeated file-descriptor attributes are omitted when the corresponding event attributes are identical; differing or unknown values remain available."
+      }
+    ],
+    "preserved_attach_decision_fields": [
+      "position",
+      "context_role",
+      "source_tier",
+      "record_mode",
+      "attach_to_backbone_edge_id",
+      "attach_reason",
+      "attach_strength",
+      "is_malicious",
+      "is_necessary_context",
+      "explanatory_channel"
+    ],
+    "mutates_existing_fields": false,
+    "affects_supervision": false
+  },
+  "traffic_entry_slim_policy": {
+    "dropped_top_level_fields": [
+      {
+        "name": "attach_basis",
+        "reason": "Traffic attachment metadata duplicates normalized connection, timing, and sequence information already represented in the public record."
+      },
+      {
+        "name": "frame_range",
+        "reason": "Packet-capture frame indices are not required for interpreting the public flow record."
+      },
+      {
+        "name": "network_node_ids",
+        "reason": "Parser-internal graph node identifiers are not part of the public flow record."
+      },
+      {
+        "name": "nat_alias_used",
+        "reason": "The normalized connection key is the public representation after address normalization."
+      }
+    ],
+    "direction_counts_policy": {
+      "rule": "Drop `reverse` iff its value is 0 (unidirectional flow summary); keep the `forward` key.",
+      "semantic_equivalence": "absent `reverse` == reverse:0"
+    },
+    "preserved_fields": [
+      "summary_type",
+      "normalized_conn_key",
+      "l4_proto",
+      "src_ip",
+      "src_port",
+      "dst_ip",
+      "dst_port",
+      "container_id",
+      "service_name",
+      "first_seen_ts",
+      "last_seen_ts",
+      "packet_count",
+      "direction_counts",
+      "semantic_type",
+      "malicious",
+      "is_attack_related",
+      "attack_label_source",
+      "attach_to_backbone_edge_id",
+      "attach_reason",
+      "attach_strength"
+    ],
+    "mutates_existing_fields": false,
+    "affects_supervision": false
+  }
+}

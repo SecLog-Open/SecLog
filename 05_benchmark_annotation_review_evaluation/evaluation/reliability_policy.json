@@ -1,0 +1,10 @@
+{
+  "policy": "SecLog-Bench main reliability policy",
+  "threshold_srp": 0.33,
+  "threshold_scc": 0.50,
+  "threshold_srf1": 0.45,
+  "high_disagreement_threshold_abs": 0.30,
+  "critical_error_allowed": false,
+  "invalid_evidence_reference_allowed": false
+}
+

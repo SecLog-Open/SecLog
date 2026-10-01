@@ -1,0 +1,79 @@
+{
+  "schema_version": "stage_reasoning_window_selection.config.v1",
+  "results_root": "../01_dataset_construction/results",
+  "output_dir": "../../seclog_work/window_selection",
+  "allow_full_span_variant": true,
+  "enable_dense_candidate_mining": true,
+  "dense_window_lengths": [
+    2,
+    3,
+    5,
+    6,
+    7
+  ],
+  "ranked_candidates_per_stage_per_scenario": 4,
+  "dense_scan_stride": 250,
+  "max_dense_windows_per_scenario": 800,
+  "focused_window_max_edges": 8,
+  "preparation_focus_edges": 6,
+  "execution_focus_edges": 8,
+  "result_focus_edges": 6,
+  "stage_unclosed_focus_edges": 8,
+  "prep_end_roles": [
+    "preparation_boundary_end",
+    "startup_handoff_exec",
+    "entry_bridge_pre"
+  ],
+  "result_tier_b_relations": [
+    "NET_ACCEPT",
+    "PROCESS_CLONE",
+    "PROCESS_FORK"
+  ],
+  "result_tier_a_relations": [
+    "FILE_READ",
+    "FILE_WRITE",
+    "NET_CONNECT",
+    "NET_SEND",
+    "PROCESS_EXEC"
+  ],
+  "generic_runtime_relations": [
+    "NET_ACCEPT",
+    "NET_CONNECT",
+    "PROCESS_FORK",
+    "PROCESS_CLONE"
+  ],
+  "request_like_applog_semantic_types": [
+    "request_access",
+    "error_exception",
+    "db_query",
+    "generic_runtime_log"
+  ],
+  "execution_signal_relations": [
+    "PROCESS_EXEC",
+    "FILE_READ",
+    "FILE_WRITE",
+    "NET_CONNECT",
+    "NET_ACCEPT"
+  ],
+  "result_signal_relations": [
+    "FILE_WRITE",
+    "NET_SEND",
+    "PROCESS_EXEC"
+  ],
+  "selection_thresholds": {
+    "stage_feature_score_min": 4,
+    "stage_support_score_min": 4,
+    "log_quality_score_min": 4,
+    "future_annotatability_score_min": 4,
+    "context_length_risk_score_max": 2,
+    "duplicate_risk_score_max": 2,
+    "require_stage_boundary_gate_for_selected": true
+  },
+  "extensibility_notes": {
+    "candidate_stage_is_seed_not_final_gold": true,
+    "stage_seed_is_chain_local_only": true,
+    "window_focus_policy_is_configurable": true,
+    "dense_ranked_window_mining_is_configurable": true,
+    "relation_families_are_configurable": true
+  }
+}

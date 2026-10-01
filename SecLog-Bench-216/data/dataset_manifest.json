@@ -1,0 +1,23 @@
+{
+  "schema_version": "seclog_bench.dataset_manifest.v1",
+  "dataset_name": "SecLog-Bench-216",
+  "task": "stage_prediction_from_compact_multisource_evidence",
+  "sample_count": 216,
+  "join_key": "sample_id",
+  "sample_id_format": "sample_000001_to_sample_000216",
+  "edge_id_format": "<sample_id>_edge_<six-digit-position>",
+  "stage_distribution": {
+    "preparation": 54,
+    "execution": 54,
+    "result": 54,
+    "stage_unclosed": 54
+  },
+  "input_files": {
+    "sample_index": "sample_index.jsonl",
+    "gold_labels": "gold_labels.jsonl",
+    "prompt_pack": "prompt_pack.jsonl",
+    "evidence_windows": "evidence_windows.jsonl",
+    "reference_reasoning_chains": "reference_reasoning_chains.jsonl"
+  },
+  "publication_unit": "one unified 216-sample benchmark"
+}
