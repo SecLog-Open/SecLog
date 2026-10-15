@@ -145,7 +145,7 @@ review workflow in
 
 ## Input and output examples
 
-<details>
+<details open>
 <summary>Show an illustrative prompt and model output</summary>
 <br>
 <p align="center">
