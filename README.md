@@ -10,6 +10,14 @@ evidence windows with reviewed stage labels and reference reasoning chains.
 Researchers can use the supplied benchmark directly or run the construction
 pipeline to produce new data.
 
+<p align="center">
+  <img src="docs/figures/seclog_overview.png" alt="SecLog overview" width="100%">
+</p>
+
+Part I of the figure corresponds to stages `01`–`04`, Part II to the
+annotation and review workflow in `05`, and Part III to the evaluation
+workflow in `05` with `SecLog-Bench-216`.
+
 ## Main features
 
 - **Multi-source log collection:** capture system-call audit logs, network
@@ -97,6 +105,10 @@ The runner uses an OpenAI-compatible chat endpoint. Its default base URL is
 outside the release tree, as in this example. Use a new output path for each
 run, or add `--resume` to continue an existing response file.
 
+Some reasoning models reject `temperature`, `max_tokens`, or JSON mode. For
+those models, run your own inference system and pass the raw outputs to the
+normalizer.
+
 You can also use your own inference system with
 `SecLog-Bench-216/data/prompt_pack.jsonl` and the
 [prediction format](SecLog-Bench-216/schemas/output_schema.json).
@@ -135,6 +147,14 @@ review workflow in
 [Post-hoc reasoning quality](05_benchmark_annotation_review_evaluation/README.md#post-hoc-reasoning-quality).
 
 ## Input and output examples
+
+<p align="center">
+  <img src="docs/figures/evaluation_io_example.png" alt="Example prompt, visible log window, and model output" width="100%">
+</p>
+
+The figure is an illustrative example. In the released files, stage labels
+are lowercase (for example, `stage_unclosed`) and evidence references use
+sample-local `edge_id` values.
 
 The benchmark uses JSONL: each line is one JSON object, joined across files by
 `sample_id`.
@@ -282,3 +302,15 @@ For the full dependency list, see
 [ENVIRONMENT_DEPENDENCIES.md](ENVIRONMENT_DEPENDENCIES.md). Subdirectory guides
 state their working directories and input/output contracts; substitute paths
 to your own constructed runs when following those workflows.
+
+## License
+
+The code in this repository is released under the [MIT License](LICENSE).
+The SecLog-Bench-216 data are released under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); see
+[SecLog-Bench-216/LICENSE](SecLog-Bench-216/LICENSE). Code in
+`01_dataset_construction/` that is adapted from AutoLabel also remains subject
+to the CC BY 4.0 attribution described in its
+[Acknowledgements](01_dataset_construction/README.md#acknowledgements).
+Third-party components bundled under `01_dataset_construction/example/` keep
+their original licenses.

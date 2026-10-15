@@ -1,0 +1,2 @@
+# Keep the hashed benchmark data byte-identical on every platform.
+SecLog-Bench-216/data/*.jsonl -text

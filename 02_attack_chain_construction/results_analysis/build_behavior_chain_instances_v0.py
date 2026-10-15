@@ -4497,13 +4497,56 @@ def run(
                 f"summary={summary_path}"
             )
 
+    edge_sequence = backbone.get("edge_sequence") or []
+    empty_backbone_ok = (
+        isinstance(edge_sequence, list)
+        and len(edge_sequence) == 0
+        and str(backbone.get("chain_id") or "").strip() == "chain_empty"
+    )
+
     if context_edges_path.exists():
         context_edges = list(_iter_jsonl(context_edges_path))
         if not context_edges:
-            raise ValueError(
-                f"behavior_context_edges.v0.jsonl exists but contains no valid records: "
-                f"{context_edges_path}; dataset requires non-empty enrich context"
+            controlled_empty_ok, controlled_details = _classify_controlled_empty_context(
+                enrich_summary
             )
+            if empty_backbone_ok:
+                context_mode_marker = {
+                    "mode": "empty-backbone-empty-context",
+                    "status": "degraded",
+                    "backbone_chain_id": str(backbone.get("chain_id") or ""),
+                    "enrich_summary_path": str(summary_path),
+                    "behavior_context_edges_path": str(context_edges_path),
+                    "reason": "backbone edge_sequence empty and enrich output empty",
+                }
+                print(
+                    "[chain_dataset_v2] controlled empty-backbone empty-context mode accepted; "
+                    f"chain_id={backbone.get('chain_id') or 'unknown'}"
+                )
+            elif controlled_empty_ok:
+                # The pipeline enrich step writes an empty context file when enrich
+                # reports empty_not_written, so no-unit runs can also arrive here.
+                context_mode_marker = {
+                    "mode": "no-unit-empty-context",
+                    "status": "degraded",
+                    "unit_mode": controlled_details.get("unit_mode"),
+                    "unit_mode_reason": controlled_details.get("unit_mode_reason"),
+                    "enrich_summary_path": str(summary_path),
+                    "behavior_context_edges_path": str(context_edges_path),
+                    "behavior_context_edges_state": controlled_details.get(
+                        "behavior_context_edges_state"
+                    ),
+                }
+                print(
+                    "[chain_dataset_v2] controlled no-unit empty-context mode accepted; "
+                    f"unit_mode={controlled_details.get('unit_mode')} "
+                    f"reason={controlled_details.get('unit_mode_reason') or 'no_reason'}"
+                )
+            else:
+                raise ValueError(
+                    f"behavior_context_edges.v0.jsonl exists but contains no valid records: "
+                    f"{context_edges_path}; dataset requires non-empty enrich context"
+                )
     else:
         controlled_empty_ok, controlled_details = _classify_controlled_empty_context(
             enrich_summary
@@ -4525,6 +4568,20 @@ def run(
                 "[chain_dataset_v2] controlled no-unit empty-context mode accepted; "
                 f"unit_mode={controlled_details.get('unit_mode')} "
                 f"reason={controlled_details.get('unit_mode_reason') or 'no_reason'}"
+            )
+        elif empty_backbone_ok:
+            context_edges = []
+            context_mode_marker = {
+                "mode": "empty-backbone-empty-context",
+                "status": "degraded",
+                "backbone_chain_id": str(backbone.get("chain_id") or ""),
+                "enrich_summary_path": str(summary_path),
+                "behavior_context_edges_path": str(context_edges_path),
+                "reason": "backbone edge_sequence empty and enrich output omitted",
+            }
+            print(
+                "[chain_dataset_v2] controlled empty-backbone empty-context mode accepted; "
+                f"chain_id={backbone.get('chain_id') or 'unknown'}"
             )
         else:
             raise FileNotFoundError(
