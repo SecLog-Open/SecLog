@@ -76,9 +76,11 @@ poetry install
 poetry run python -c "print('ok')"
 ```
 
-Download the project image archive from the project release page, place
-`all_images.tar.gz` beside `build.sh` in the current directory, then unpack and
-load the images:
+Download `all_images.tar.gz` (about 30.8 GB) from the
+[AutoLabel Zenodo record](https://zenodo.org/records/15540310)
+([direct link](https://zenodo.org/records/15540310/files/all_images.tar.gz?download=1);
+MD5 `45ca849acff7a95a4650bdbba0686527`), place it beside `build.sh` in the
+current directory, then unpack and load the images:
 
 ```bash
 gzip -d all_images.tar.gz

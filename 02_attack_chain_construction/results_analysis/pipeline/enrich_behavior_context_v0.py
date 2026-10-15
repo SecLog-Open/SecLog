@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 from typing import Optional
@@ -34,6 +35,23 @@ DEFAULT_UNMATCHED_REASON_TRACE_OUTPUT = CHAIN_DIR / "unmatched_reason_trace.v0.j
 DEFAULT_SUMMARY_OUTPUT = CHAIN_DIR / "behavior_context_summary.v0.json"
 DEFAULT_CANDIDATE_OUTPUT = CHAIN_DIR / "noncore_attach_candidate_index.v0.jsonl"
 DEFAULT_ANCHOR_OUTPUT = INDEX_DIR / "event_to_backbone_anchor_index.v0.jsonl"
+
+
+def _summary_declares_empty_context(summary_output_path: Path) -> bool:
+    if not summary_output_path.exists():
+        return False
+    try:
+        summary = json.loads(summary_output_path.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+    if not isinstance(summary, dict):
+        return False
+    if str(summary.get("status") or "").strip() != "completed":
+        return False
+    output_state = summary.get("output_state")
+    if not isinstance(output_state, dict):
+        return False
+    return str(output_state.get("behavior_context_edges") or "").strip() == "empty_not_written"
 
 
 def _legacy():
@@ -79,7 +97,7 @@ def run_for_scenario(
     anchor_output_path = anchor_output_path or (index_dir / "event_to_backbone_anchor_index.v0.jsonl")
 
     legacy = _legacy()
-    return legacy.run(
+    rc = legacy.run(
         scenario_dir=scenario_dir,
         backbone_path=backbone_path,
         auxiliary_path=auxiliary_path,
@@ -97,6 +115,10 @@ def run_for_scenario(
         skip_enrich=skip_enrich,
         backbone_guard_threshold=backbone_guard_threshold,
     )
+    if rc == 0 and _summary_declares_empty_context(summary_output_path) and not output_path.exists():
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text("", encoding="utf-8")
+    return rc
 
 
 def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:

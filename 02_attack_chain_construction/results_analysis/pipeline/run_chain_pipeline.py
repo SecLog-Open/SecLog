@@ -405,6 +405,22 @@ def _is_no_unit_enrich_completed(chain_dir: Path) -> tuple[bool, str]:
     return False, ""
 
 
+def _is_empty_context_enrich_completed(chain_dir: Path) -> tuple[bool, str]:
+    summary = _load_enrich_summary(chain_dir)
+    if not summary:
+        return False, ""
+    status = str(summary.get("status") or "").strip()
+    output_state = summary.get("output_state") if isinstance(summary.get("output_state"), dict) else {}
+    context_state = str(output_state.get("behavior_context_edges") or "")
+    if status == "completed" and context_state == "empty_not_written":
+        unit_mode = str(summary.get("unit_mode") or "").strip()
+        unit_reason = str(summary.get("unit_mode_reason") or "").strip()
+        if unit_mode in {"unit-absent", "unit-unavailable"}:
+            return True, unit_reason or "no_unit_mode"
+        return True, "bounded_enrich_empty_context"
+    return False, ""
+
+
 def _formal_success_failures(chain_dir: Path) -> list[str]:
     reasons: list[str] = []
     skipped_reason = _enrich_skipped_reason(chain_dir)
@@ -412,6 +428,7 @@ def _formal_success_failures(chain_dir: Path) -> list[str]:
         reasons.append(f"enrich was marked as skipped: {skipped_reason}")
 
     no_unit_ok, _ = _is_no_unit_enrich_completed(chain_dir)
+    empty_context_ok, _ = _is_empty_context_enrich_completed(chain_dir)
     required_files = [
         (chain_dir / "behavior_chain_dataset.v2.json", "dataset file is missing or empty"),
         (chain_dir / "behavior_chain_dataset.v2.meta.json", "dataset metadata file is missing or empty"),
@@ -421,7 +438,7 @@ def _formal_success_failures(chain_dir: Path) -> list[str]:
         ),
     ]
     for path, reason in required_files:
-        if path.name == "behavior_context_edges.v0.jsonl" and no_unit_ok:
+        if path.name == "behavior_context_edges.v0.jsonl" and (no_unit_ok or empty_context_ok):
             continue
         if not path.exists() or path.stat().st_size == 0:
             reasons.append(reason)
@@ -764,6 +781,10 @@ def _check_enrich_outputs(
         and no_unit_mode
         and context_output_state == "empty_not_written"
     )
+    allow_empty_context_outputs = (
+        status == "completed"
+        and context_output_state == "empty_not_written"
+    )
 
     if status == "skipped":
         skip_reason = str(summary.get("skip_reason") or "")
@@ -785,10 +806,10 @@ def _check_enrich_outputs(
             )
 
     if not context_edges_path.exists():
-        if allow_no_unit_sparse_outputs:
+        if allow_empty_context_outputs:
             print(
-                "[run_chain_pipeline] enrich completed in no-unit mode with empty context output; "
-                f"unit_mode={unit_mode} reason={unit_mode_reason or 'unknown'}"
+                "[run_chain_pipeline] enrich completed with empty context output; "
+                f"unit_mode={unit_mode or 'n/a'} reason={unit_mode_reason or 'unknown'}"
             )
             return
         if status == "completed":
@@ -807,6 +828,13 @@ def _check_enrich_outputs(
                 f"unit_mode={unit_mode} reason={unit_mode_reason or 'unknown'}"
             )
             return
+        if allow_empty_context_outputs:
+            print(
+                "[run_chain_pipeline] enrich emitted empty context file; "
+                f"unit_mode={unit_mode or 'n/a'} reason={unit_mode_reason or 'unknown'}"
+            )
+            if anchor_index_path.exists() or anchor_output_state == "written":
+                return
         raise IncompletePipelineError(
             "[run_chain_pipeline] enrich produced an empty behavior_context_edges file; "
             "this run is INCOMPLETE and NOT formal success"

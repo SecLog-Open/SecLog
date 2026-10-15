@@ -2,6 +2,14 @@
 
 Purpose: construct raw multi-source security-log runs from Docker scenarios.
 
+<p align="center">
+  <img src="../docs/figures/scenario_distribution.png" alt="Distribution of the 29 reproducible attack scenarios" width="55%">
+</p>
+
+The construction batch in `build.sh` covers 29 reproducible attack scenarios,
+grouped above by application stack. Scenario descriptions are in
+[scenario_descriptions.md](scenario_descriptions.md).
+
 Primary entry points:
 
 ```bash
@@ -141,3 +149,16 @@ those programs only inside their declared Docker environment.
 
 This stage creates the input consumed by stage 02. Install the host runtime
 and privileged capture tools before running a capture.
+
+## Acknowledgements
+
+The construction framework in this directory is adapted from
+[AutoLabel](https://github.com/autolabel-open/autolabel) (Peng et al.,
+USENIX Security 2025). AutoLabel's code, documentation, and Docker images are
+archived at [doi:10.5281/zenodo.15540310](https://doi.org/10.5281/zenodo.15540310),
+Copyright (C) 2025 by Yihao Peng, Tongxin Zhang, Jieshao Lai, Yuxuan Zhang,
+Yiming Wu, Hai Wan, and Xibin Zhao, and licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). SecLog modifies and
+extends this code, including the scenario configurations and additional
+indexing, export, and validation scripts. We thank the AutoLabel authors for
+releasing their framework and Docker images.
