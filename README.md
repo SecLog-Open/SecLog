@@ -11,12 +11,9 @@ Researchers can use the supplied benchmark directly or run the construction
 pipeline to produce new data.
 
 <p align="center">
-  <img src="docs/figures/seclog_overview.png" alt="SecLog overview" width="100%">
+  <img src="docs/figures/seclog_overview.png" alt="SecLog overview" width="90%">
 </p>
-
-Part I of the figure corresponds to stages `01`–`04`, Part II to the
-annotation and review workflow in `05`, and Part III to the evaluation
-workflow in `05` with `SecLog-Bench-216`.
+<p align="center"><sub><i>Figure 1. SecLog overview. Part I corresponds to stages 01–04, Part II to the annotation and review workflow in 05, and Part III to the evaluation workflow in 05 with SecLog-Bench-216.</i></sub></p>
 
 ## Main features
 
@@ -148,13 +145,14 @@ review workflow in
 
 ## Input and output examples
 
+<details>
+<summary>Show an illustrative prompt and model output</summary>
+<br>
 <p align="center">
-  <img src="docs/figures/evaluation_io_example.png" alt="Example prompt, visible log window, and model output" width="100%">
+  <img src="docs/figures/evaluation_io_example.png" alt="Example prompt, visible log window, and model output" width="90%">
 </p>
-
-The figure is an illustrative example. In the released files, stage labels
-are lowercase (for example, `stage_unclosed`) and evidence references use
-sample-local `edge_id` values.
+<p align="center"><sub><i>Figure 2. Illustrative example. In the released files, stage labels are lowercase (for example, <code>stage_unclosed</code>) and evidence references use sample-local <code>edge_id</code> values.</i></sub></p>
+</details>
 
 The benchmark uses JSONL: each line is one JSON object, joined across files by
 `sample_id`.

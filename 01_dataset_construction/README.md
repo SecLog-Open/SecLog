@@ -5,10 +5,9 @@ Purpose: construct raw multi-source security-log runs from Docker scenarios.
 <p align="center">
   <img src="../docs/figures/scenario_distribution.png" alt="Distribution of the 29 reproducible attack scenarios" width="55%">
 </p>
+<p align="center"><sub><i>The construction batch in <code>build.sh</code> covers 29 reproducible attack scenarios, grouped by application stack.</i></sub></p>
 
-The construction batch in `build.sh` covers 29 reproducible attack scenarios,
-grouped above by application stack. Scenario descriptions are in
-[scenario_descriptions.md](scenario_descriptions.md).
+Scenario descriptions are in [scenario_descriptions.md](scenario_descriptions.md).
 
 Primary entry points:
 
