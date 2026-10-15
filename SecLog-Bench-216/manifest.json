@@ -1,7 +1,6 @@
 {
   "name": "SecLog-Bench-216",
   "version": "1.0.0",
-  "license": "CC-BY-4.0",
   "task": "window-level attack-stage prediction with evidence-grounded reasoning",
   "sample_count": 216,
   "stage_distribution": {
