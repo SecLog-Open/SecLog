@@ -302,15 +302,3 @@ For the full dependency list, see
 [ENVIRONMENT_DEPENDENCIES.md](ENVIRONMENT_DEPENDENCIES.md). Subdirectory guides
 state their working directories and input/output contracts; substitute paths
 to your own constructed runs when following those workflows.
-
-## License
-
-The code in this repository is released under the [MIT License](LICENSE).
-The SecLog-Bench-216 data are released under
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); see
-[SecLog-Bench-216/LICENSE](SecLog-Bench-216/LICENSE). Code in
-`01_dataset_construction/` that is adapted from AutoLabel also remains subject
-to the CC BY 4.0 attribution described in its
-[Acknowledgements](01_dataset_construction/README.md#acknowledgements).
-Third-party components bundled under `01_dataset_construction/example/` keep
-their original licenses.
