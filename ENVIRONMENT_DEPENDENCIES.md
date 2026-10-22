@@ -76,16 +76,24 @@ poetry install
 poetry run python -c "print('ok')"
 ```
 
-Download `all_images.tar.gz` (about 30.8 GB) from the
-[AutoLabel Zenodo record](https://zenodo.org/records/15540310)
-([direct link](https://zenodo.org/records/15540310/files/all_images.tar.gz?download=1);
-MD5 `45ca849acff7a95a4650bdbba0686527`), place it beside `build.sh` in the
-current directory, then unpack and load the images:
+Download the Docker image package (approximately 30.82 GB in total) from the
+[SecLog Docker images record](https://doi.org/10.5281/zenodo.23474857).
+Download all three parts:
+
+- [`all_images.tar.gz.01`](https://zenodo.org/records/23474857/files/all_images.tar.gz.01?download=1)
+- [`all_images.tar.gz.02`](https://zenodo.org/records/23474857/files/all_images.tar.gz.02?download=1)
+- [`all_images.tar.gz.03`](https://zenodo.org/records/23474857/files/all_images.tar.gz.03?download=1)
+
+Place all three parts beside `build.sh` in the current directory. Combine
+them in numerical order, then import the reconstructed archive into Docker:
 
 ```bash
-gzip -d all_images.tar.gz
-sudo docker load -i ./all_images.tar
+cat all_images.tar.gz.01 all_images.tar.gz.02 all_images.tar.gz.03 > all_images.tar.gz
+sudo docker load --input ./all_images.tar.gz
 ```
+
+Docker can load the gzip-compressed archive directly. All three parts are
+required; see the README on the Zenodo record for additional instructions.
 
 If Docker reports `no space left on device`, provide sufficient Docker and
 filesystem space before retrying. Configure the kernel map count when needed:
