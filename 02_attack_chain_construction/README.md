@@ -3,6 +3,8 @@
 Purpose: transform an existing run's `raw/` and `index/` products into a structured
 attack chain without changing `raw`.
 
+Pre-generated attack chains: [Zenodo](https://doi.org/10.5281/zenodo.23525715).
+
 Run commands from `02_attack_chain_construction/`. Replace `<scenario>` and
 `<timestamp>` with an existing stage-01 run directory.
 

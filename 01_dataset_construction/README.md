@@ -2,6 +2,8 @@
 
 Purpose: construct raw multi-source security-log runs from Docker scenarios.
 
+Pre-generated raw logs and alignment indices: [Zenodo](https://doi.org/10.5281/zenodo.23536103).
+
 <p align="center">
   <img src="../docs/figures/scenario_distribution.png" alt="Distribution of the 29 reproducible attack scenarios" width="55%">
 </p>

@@ -10,6 +10,10 @@ evidence windows with reviewed stage labels and reference reasoning chains.
 Researchers can use the supplied benchmark directly or run the construction
 pipeline to produce new data.
 
+Construction resources on Zenodo: [Docker images](https://doi.org/10.5281/zenodo.23474857),
+[raw logs and alignment indices](https://doi.org/10.5281/zenodo.23536103), and
+[constructed attack chains](https://doi.org/10.5281/zenodo.23525715).
+
 <p align="center">
   <img src="docs/figures/seclog_overview.png" alt="SecLog overview" width="90%">
 </p>
