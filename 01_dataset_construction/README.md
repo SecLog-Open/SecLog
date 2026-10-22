@@ -160,11 +160,18 @@ and privileged capture tools before running a capture.
 
 The construction framework in this directory is adapted from
 [AutoLabel](https://github.com/autolabel-open/autolabel) (Peng et al.,
-USENIX Security 2025). AutoLabel's code, documentation, and Docker images are
+USENIX Security 2025). We thank its authors for releasing the framework and
+Docker images.
+
+<details>
+<summary>Upstream attribution and license</summary>
+
+AutoLabel's code, documentation, and Docker images are
 archived at [doi:10.5281/zenodo.15540310](https://doi.org/10.5281/zenodo.15540310),
 Copyright (C) 2025 by Yihao Peng, Tongxin Zhang, Jieshao Lai, Yuxuan Zhang,
 Yiming Wu, Hai Wan, and Xibin Zhao, and licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). SecLog modifies and
 extends this code, including the scenario configurations and additional
-indexing, export, and validation scripts. We thank the AutoLabel authors for
-releasing their framework and Docker images.
+indexing, export, and validation scripts.
+
+</details>
