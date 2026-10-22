@@ -47,3 +47,8 @@ The matching prompt, normalization, evaluation, and reasoning-quality code is
 under `../05_benchmark_annotation_review_evaluation/evaluation/`.  Its
 evaluator accepts this public schema directly when `--reference-chains` is
 provided.
+
+## License
+
+This benchmark is licensed under [CC BY 4.0](LICENSE).
+Copyright (c) 2026 SecLog contributors.

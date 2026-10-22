@@ -54,11 +54,9 @@ python3.11 -m venv ../seclog-env
 source ../seclog-env/bin/activate
 ```
 
-The validator, basic API inference runner, response normalizer, and stage
-evaluator below use the Python standard library. Docker and log-capture tools
-are required for collecting new logs, not for this workflow. Additional
-annotation, review UI, and analysis components have their own dependencies;
-see the [environment guide](ENVIRONMENT_DEPENDENCIES.md).
+The commands below use the Python standard library. For log collection,
+annotation, the review UI, and additional analysis, see the
+[environment guide](ENVIRONMENT_DEPENDENCIES.md).
 
 ### 1. Validate the dataset
 
@@ -106,13 +104,10 @@ The runner uses an OpenAI-compatible chat endpoint. Its default base URL is
 outside the release tree, as in this example. Use a new output path for each
 run, or add `--resume` to continue an existing response file.
 
-Some reasoning models reject `temperature`, `max_tokens`, or JSON mode. For
-those models, run your own inference system and pass the raw outputs to the
-normalizer.
-
-You can also use your own inference system with
-`SecLog-Bench-216/data/prompt_pack.jsonl` and the
-[prediction format](SecLog-Bench-216/schemas/output_schema.json).
+To use your own inference system, including models that reject `temperature`,
+`max_tokens`, or JSON mode, use `SecLog-Bench-216/data/prompt_pack.jsonl` and the
+[prediction format](SecLog-Bench-216/schemas/output_schema.json), then pass
+the raw outputs to the normalizer below.
 
 ### 4. Normalize and score the responses
 
@@ -255,14 +250,11 @@ This starts the declared simulation and produces
 `results/python-demo/<timestamp>/raw/` and `index/`. Use
 `bash build.sh` for the documented batch construction workflow.
 
-The stage-01 Poetry project installs the host construction dependencies.
-Scenario services may install separate dependencies inside their Docker
-images. Retain the bundled scene definitions, service files, fixtures, and
-runtime artifacts required by those images; their purpose is documented in
-the [construction README](01_dataset_construction/README.md).
-
-Continue with the stage-specific guides below for attack-chain construction,
-dataset export, window selection, annotation, and review.
+Poetry installs the host construction dependencies; scenario services use
+their Docker environments. Keep the bundled scenario inputs and runtime
+artifacts together, as described in the
+[construction README](01_dataset_construction/README.md), then follow the
+stage-specific guides below.
 
 ## Pipeline and project layout
 
@@ -300,7 +292,16 @@ newly constructed and reviewed candidates are separate from the frozen
 | `05_benchmark_annotation_review_evaluation/` | [Prepare prompts, annotate, review, and evaluate](05_benchmark_annotation_review_evaluation/README.md) |
 | `SecLog-Bench-216/` | [Use the supplied benchmark and its schemas](SecLog-Bench-216/README.md) |
 
-For the full dependency list, see
-[ENVIRONMENT_DEPENDENCIES.md](ENVIRONMENT_DEPENDENCIES.md). Subdirectory guides
-state their working directories and input/output contracts; substitute paths
-to your own constructed runs when following those workflows.
+Subdirectory guides specify working directories and input/output contracts;
+substitute paths to your own constructed runs when following those workflows.
+
+## License
+
+Original SecLog code and documentation are licensed under the [MIT License](LICENSE).
+The [SecLog-Bench-216 dataset](SecLog-Bench-216/README.md) is licensed under
+[CC BY 4.0](SecLog-Bench-216/LICENSE).
+
+Upstream and third-party materials retain their own licenses; the MIT license
+applies only to SecLog's original contributions. See the
+[construction acknowledgements](01_dataset_construction/README.md#acknowledgements)
+for AutoLabel attribution and licensing information.

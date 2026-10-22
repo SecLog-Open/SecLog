@@ -56,12 +56,6 @@ poetry install
 poetry run python main.py --help
 ```
 
-You can perform a side-effect-free environment smoke test with:
-
-```bash
-poetry run python -c "print('ok')"
-```
-
 Download the Docker image package (approximately 30.82 GB in total) from the
 [SecLog Docker images record](https://doi.org/10.5281/zenodo.23474857).
 Download all three parts:
@@ -124,18 +118,19 @@ it so that `example/`, `results/`, and the capture helpers resolve correctly.
 The single-scene command above uses the same layout. Without `--output-path`,
 `main.py` writes to `results/<timestamp>/` directly.
 
-`main.py` connects to Docker only when a scene actually starts, so help and
-configuration validation remain side-effect free. `build.sh` contains the
-construction batch, while `example/` retains the complete set of scenario
-definitions and auxiliary multi-jump inputs.
+The help and configuration-validation commands above do not start Docker.
+Keep the bundled runtime inputs together:
 
-Key runtime content:
-
-- `example/`: required scenario definitions, Dockerfiles, services, and action drivers;
-- `hook/`, `modify/`, `sysdig_rules/`: capture and instrumentation support;
+- `example/`: scenario definitions, Dockerfiles, Compose files, services,
+  action drivers, hidden build-context files, fixtures, and auxiliary multi-jump inputs;
+- `hook/`, `modify/`, `sysdig_rules/`: capture and instrumentation support,
+  including the hook source, build scripts, and runtime artifacts used by scenario Dockerfiles;
 - `print_fields_new.lua`: required by `load_logs.py` when converting Sysdig captures;
 - `analyze.py`: produces derived `raw/index` run products after capture;
 - `pyproject.toml` and `poetry.lock`: Python environment definition.
+
+<details>
+<summary>glibc hook IP remapping</summary>
 
 The attacker-IP mapping used by the glibc hook is
 `modify/hook_glibc_attacker/ip_list.h`. `modify/hook_glibc_attacker/configure.py`
@@ -144,17 +139,12 @@ with the scenario's IP remapping. The C hook replaces matching IPv4 destination
 addresses in `connect`/`sendto` calls. The header is generated as part of the
 hook build when the scenario requires it.
 
-`example/` is the complete runtime input tree. Keep its Dockerfiles, Compose
-files, action drivers, hidden build-context files, and scenario fixtures
-together when running the builder. The `hook/` tree keeps the rebuildable
-source, build scripts, and runtime artifacts used by the scenario Dockerfiles.
-Construction and validation entry points are kept in this stage root.
+</details>
 
 Some bundled scenarios contain Python 2 proof-of-concept code. Run
 those programs only inside their declared Docker environment.
 
-This stage creates the input consumed by stage 02. Install the host runtime
-and privileged capture tools before running a capture.
+This stage creates the input consumed by stage 02.
 
 ## Acknowledgements
 

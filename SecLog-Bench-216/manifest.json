@@ -16,5 +16,6 @@
     "data/gold_labels.jsonl": "aba8edfd22c2f8543047f558950a6de7f000ccaa7333db0aa884c0278219c0d1",
     "data/prompt_pack.jsonl": "b3871616610277833f66fd335e6932390a25dfe07894d6dad24b4701a02f5611",
     "data/reference_reasoning_chains.jsonl": "363b60a49d23a08a1de5b34d3108ee8e1db353e77d3e41390c2f4d7b6e7dcac2"
-  }
+  },
+  "license": "CC-BY-4.0"
 }

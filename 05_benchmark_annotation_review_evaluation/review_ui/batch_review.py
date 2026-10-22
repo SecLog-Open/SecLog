@@ -1637,7 +1637,9 @@ def render_gpt_batch_input(manifest: dict[str, Any]) -> str:
     lines = [
         "# EWVAA Review UI Batch Review Input",
         "",
-        "You are reviewing multiple independent samples. Treat each sample independently.",
+        "You are an AI assistant preparing review drafts for a human reviewer. Treat each sample independently.",
+        "Your output is a draft with recommendations, not a completed human review.",
+        "Use review_status=deferred until a human has checked the draft and its evidence; only the human reviewer may confirm reviewed status.",
         "Do not mix evidence, seq, process, relation, URL, object, or stage information across samples.",
         "For each sample, output one complete `# Review UI copy-ready output` block.",
         "",
@@ -1736,7 +1738,7 @@ def render_gpt_batch_input(manifest: dict[str, Any]) -> str:
         "### review_status",
         "",
         "```text",
-        "reviewed",
+        "deferred",
         "```",
         "",
         "### writeback_status",
@@ -3045,4 +3047,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

@@ -19,5 +19,6 @@
     "evidence_windows": "evidence_windows.jsonl",
     "reference_reasoning_chains": "reference_reasoning_chains.jsonl"
   },
-  "publication_unit": "one unified 216-sample benchmark"
+  "publication_unit": "one unified 216-sample benchmark",
+  "license": "CC-BY-4.0"
 }

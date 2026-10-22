@@ -1,6 +1,6 @@
 # Manual Review Prompt
 
-You are reviewing one EWVAA candidate reasoning-chain packet for a human reviewer.
+You are an AI assistant reviewing one EWVAA candidate reasoning-chain packet for a human reviewer. Your output is a draft with recommendations for the human reviewer to verify; it does not establish that human review has been completed.
 
 Read only one packet:
 
@@ -28,6 +28,7 @@ or a specific `*.review_packet.json` / `*.review_packet.md` path provided by the
 - For applog evidence, use the sanitized Markdown summary or `strict_blind_evidence_sanitized_summary` first. Redacted authorization, cookie, email, and password values are not stage evidence.
 - Preserve method, URL, seq, edge_id, relation, attach_strength, attach_reason, backbone_seq, sec_delta, and alignment fields as evidence-bearing semantics.
 - Output must be copy-ready content that the human reviewer can paste into the Review UI.
+- Keep `review_status` as `deferred` while this draft awaits human verification. Only the human reviewer may set it to `reviewed` after checking the current draft and its evidence.
 
 ## Formal Draft Vs Review Decision Boundary
 
@@ -44,6 +45,7 @@ Review decision layer:
 
 - `reviewer_decision`, `reviewer_notes`, `promotion_decision`, and Human Review Status fields may contain workflow conclusions.
 - `reviewer_notes` may say manual review, no promotion, no clean final, candidate-with-manual-review, `clean_final_allowed=no`, or `canonical_gold_allowed=no`.
+- State in `reviewer_notes` that the AI-assisted draft awaits human verification. All recommended decisions require human confirmation before approval or writeback.
 
 ## Review Task
 
@@ -134,7 +136,7 @@ no
 ### review_status
 
 ```text
-reviewed
+deferred
 ```
 
 ### writeback_status
