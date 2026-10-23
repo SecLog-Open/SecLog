@@ -313,14 +313,3 @@ or the released data **must cite** the following paper:
   url = {https://arxiv.org/abs/2610.31000}
 }
 ```
-
-## License
-
-Original SecLog code and documentation are licensed under the [MIT License](LICENSE).
-The [SecLog-Bench-216 dataset](SecLog-Bench-216/README.md) is licensed under
-[CC BY 4.0](SecLog-Bench-216/LICENSE).
-
-Upstream and third-party materials retain their own licenses; the MIT license
-applies only to SecLog's original contributions. See the
-[construction acknowledgements](01_dataset_construction/README.md#acknowledgements)
-for AutoLabel attribution and licensing information.
