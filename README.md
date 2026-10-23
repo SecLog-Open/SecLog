@@ -10,6 +10,8 @@ evidence windows with reviewed stage labels and reference reasoning chains.
 Researchers can use the supplied benchmark directly or run the construction
 pipeline to produce new data.
 
+Paper: [SecLog-Bench: A Scalable Benchmark for Cybersecurity Log Reasoning with Scaffolded Evidence](https://arxiv.org/abs/2610.31000).
+
 Construction resources on Zenodo: [Docker images](https://doi.org/10.5281/zenodo.23474857),
 [raw logs and alignment indices](https://doi.org/10.5281/zenodo.23536103), and
 [constructed attack chains](https://doi.org/10.5281/zenodo.23525715).
@@ -294,6 +296,23 @@ newly constructed and reviewed candidates are separate from the frozen
 
 Subdirectory guides specify working directories and input/output contracts;
 substitute paths to your own constructed runs when following those workflows.
+
+## Citation
+
+Any publication or research output that uses SecLog code, SecLog-Bench-216,
+or the released data **must cite** the following paper:
+
+```bibtex
+@misc{wang2026seclogbench,
+  title = {{SecLog-Bench: A Scalable Benchmark for Cybersecurity Log Reasoning with Scaffolded Evidence}},
+  author = {Wang, Yifan and Xu, Dongliang and Li, Xiaoyong and Li, Jing and Pan, Peter S. and Yao, Yue},
+  year = {2026},
+  eprint = {2610.31000},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CR},
+  url = {https://arxiv.org/abs/2610.31000}
+}
+```
 
 ## License
 

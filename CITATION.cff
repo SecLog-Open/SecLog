@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: If you use SecLog code or data in research or publications, you must cite the paper below.
+title: SecLog
+type: software
+authors:
+- family-names: Wang
+  given-names: Yifan
+- family-names: Xu
+  given-names: Dongliang
+- family-names: Li
+  given-names: Xiaoyong
+- family-names: Li
+  given-names: Jing
+- family-names: Pan
+  given-names: Peter S.
+- family-names: Yao
+  given-names: Yue
+url: https://github.com/SecLog-Open/SecLog
+repository-code: https://github.com/SecLog-Open/SecLog
+preferred-citation:
+  type: article
+  title: 'SecLog-Bench: A Scalable Benchmark for Cybersecurity Log Reasoning with Scaffolded Evidence'
+  authors:
+  - family-names: Wang
+    given-names: Yifan
+  - family-names: Xu
+    given-names: Dongliang
+  - family-names: Li
+    given-names: Xiaoyong
+  - family-names: Li
+    given-names: Jing
+  - family-names: Pan
+    given-names: Peter S.
+  - family-names: Yao
+    given-names: Yue
+  journal: arXiv preprint arXiv:2610.31000
+  year: 2026
+  url: https://arxiv.org/abs/2610.31000
