@@ -1,7 +1,7 @@
 # Full Workflow
 
-This document is the complete end-to-end workflow for
-`04_benchmark_window_selection`.
+This is the main guide for building and validating stage-reasoning
+evidence windows in `04_benchmark_window_selection`.
 
 Code directory:
 
@@ -9,7 +9,10 @@ Code directory:
 04_benchmark_window_selection
 ```
 
-All paths below are relative to this directory.
+Run all commands from this directory. Paths below are relative to it.
+Choose a work directory with `--output-dir`, such as `./window_workdir`,
+or use an absolute output path outside the source data tree.
+Use `--results-root` to read chains from a separately mounted dataset.
 
 ## 1. Goal
 
@@ -32,11 +35,14 @@ Auxiliary annotation context:
   used by the annotation context)
 
 The normalized file and raw source records provide context for annotation and
-review; they are not model-visible stage evidence.
+review; they are not model-visible stage evidence. Structured facts are stored
+in `auxiliary_context/vulnerability_facts_seed/scenario_vulnerability_facts.json`;
+`generate_normalized_outputs.py` in that directory produces the normalized
+context.
 
 Chain input contract:
 
-- `CHAIN_INPUT_CONTRACT.md`
+- [Chain input contract](CHAIN_INPUT_CONTRACT.md)
 
 ## 3. Processing stages
 
@@ -47,6 +53,14 @@ Script:
 ```bash
 python scripts/run_stage_reasoning_window_selection.py \
   --output-dir ./window_workdir
+```
+
+For available options or a small run:
+
+```bash
+python scripts/run_stage_reasoning_window_selection.py --help
+python scripts/run_stage_reasoning_window_selection.py \
+  --scenario-limit 4 --output-dir ./window_workdir
 ```
 
 What it does:
@@ -68,7 +82,8 @@ Output:
 
 Logic:
 
-Derive the stage-span seed from local `chain` evidence only.
+Derive the stage-span seed from local `chain` evidence only. These are
+candidate labels for downstream annotation and human review.
 
 The derivation uses:
 
@@ -157,15 +172,17 @@ Outputs:
 Output:
 
 - `<work-dir>/annotation_ready_seed.jsonl`
+- `<work-dir>/manifest.json`
+- `<work-dir>/summary.md`
 
-This file is the downstream seed for:
+The annotation seed is the downstream input for:
 
 ```text
 strict-blind
 compact evidence
 annotation context join
 prompt pack build
-EWVAA candidate reasoning
+AI annotation and Evidence-Guided Risk Review
 Review UI
 frozen release export
 ```
@@ -206,12 +223,7 @@ Configuration can:
 
 ## 5. Validation
 
-Run:
-
-```bash
-python scripts/run_stage_reasoning_window_selection.py \
-  --output-dir ./window_workdir
-```
+The entry command in Stage A runs build and validation sequentially.
 
 Validator checks:
 
@@ -232,6 +244,11 @@ python scripts/validate_stage_reasoning_window_selection.py \
 ```
 
 ## 6. Downstream benchmark
+
+Pass `<work-dir>/annotation_ready_seed.jsonl` to
+[stage 05](../05_benchmark_annotation_review_evaluation/README.md).
+See the [handoff contract](HANDOFF_TO_RELEASE_CONTRACT.md) for the fields
+that must be preserved.
 
 This code unit provides window extraction and stage-candidate selection for
 `chain` outputs. The frozen benchmark is available at:

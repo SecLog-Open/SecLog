@@ -29,3 +29,6 @@ paths may be supplied explicitly.
 
 The method assets include the complete vulnerability-facts seed used by the
 context checks: both `raw_sources/` snapshots and `normalized/` outputs.
+
+See the [full workflow](FULL_WORKFLOW.md) for inputs, build options,
+validation, and the handoff to annotation and review.

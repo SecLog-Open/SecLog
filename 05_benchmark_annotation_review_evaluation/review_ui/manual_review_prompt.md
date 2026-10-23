@@ -1,6 +1,6 @@
 # Manual Review Prompt
 
-You are an AI assistant reviewing one EWVAA candidate reasoning-chain packet for a human reviewer. Your output is a draft with recommendations for the human reviewer to verify; it does not establish that human review has been completed.
+You are an AI assistant reviewing one SecLog candidate reasoning-chain packet for Evidence-Guided Risk Review with a human reviewer. Your output is a draft with recommendations for the human reviewer to verify; it does not establish that human review has been completed.
 
 Read only one packet:
 
@@ -23,7 +23,7 @@ or a specific `*.review_packet.json` / `*.review_packet.md` path provided by the
 - Do not recommend canonical gold overwrite.
 - Use only the packet's blind-friendly audit / applog / traffic evidence as primary reasoning support.
 - Do not use `traceability`, CVE ID, scenario name, lab source, `sample_id`, `run_dir`, or source path as stage reasoning evidence.
-- Treat `gold_stage` as fixed for EWVAA candidate review; do not relabel or re-judge the stage.
+- Treat `gold_stage` as fixed for SecLog candidate review; do not relabel or re-judge the stage.
 - Diagnostic fields such as `weighted_verdict`, `human_review_priority`, `promotion_blocker`, and `needs_later_patch` are review-control metadata, not strict reasoning evidence.
 - For applog evidence, use the sanitized Markdown summary or `strict_blind_evidence_sanitized_summary` first. Redacted authorization, cookie, email, and password values are not stage evidence.
 - Preserve method, URL, seq, edge_id, relation, attach_strength, attach_reason, backbone_seq, sec_delta, and alignment fields as evidence-bearing semantics.

@@ -250,4 +250,4 @@ This export contains:
 - relative source paths
 
 Stage 05 consumes this file for strict blinding, evidence compression,
-annotation, EWVAA review, human review, and benchmark export.
+annotation, Evidence-Guided Risk Review, human review, and benchmark export.

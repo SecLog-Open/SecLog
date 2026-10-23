@@ -3,6 +3,10 @@
 Purpose: consume stage-04 windows, construct strict-blind compact prompts,
 support AI annotation/reviewer methods and human review, and score predictions.
 
+**Evidence-Guided Risk Review** checks candidate reasoning for evidence risks
+and prioritizes human review. The `EWVAA` prefix in script identifiers and
+environment variables refers to this annotation and review workflow.
+
 Run the commands below from `05_benchmark_annotation_review_evaluation/`.
 Replace `/path/to/...` with the locations selected for your inputs and outputs.
 
@@ -89,12 +93,13 @@ python scripts/validate_public_benchmark.py
 All samples use one contiguous public ID namespace from `sample_000001`
 through `sample_000216`.
 
+Replace `your-model-name` with the model identifier supported by your provider.
 Run a no-network inference preflight (real calls require `--call-api`):
 
 ```bash
 python evaluation/run_benchmark_inference.py \
   --prompt-pack ../SecLog-Bench-216/data/prompt_pack.jsonl \
-  --model <model-name> \
+  --model your-model-name \
   --output /path/to/model_run/raw_responses.jsonl
 ```
 
@@ -105,7 +110,7 @@ variable. The output path must be outside the release tree:
 export OPENAI_API_KEY="<key>"
 python evaluation/run_benchmark_inference.py \
   --prompt-pack ../SecLog-Bench-216/data/prompt_pack.jsonl \
-  --model <model-name> \
+  --model your-model-name \
   --output /path/to/model_run/raw_responses.jsonl \
   --call-api
 ```

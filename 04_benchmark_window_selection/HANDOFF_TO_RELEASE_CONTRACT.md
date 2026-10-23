@@ -17,7 +17,7 @@ Expected downstream use:
 3. build compact evidence views
 4. join auxiliary context
 5. build annotator/reviewer prompt packs
-6. run EWVAA candidate reasoning
+6. run AI annotation and Evidence-Guided Risk Review
 7. run Review UI human review
 8. export frozen release artefacts
 

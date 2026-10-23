@@ -1,7 +1,8 @@
 # Human Review UI
 
-This directory contains the human-review tool used after AI annotation and
-reviewer preparation. It reads a review workbench, displays visible evidence,
+This directory contains the human-review tool for SecLog's
+Evidence-Guided Risk Review workflow, used after AI annotation and reviewer
+preparation. It reads a review workbench, displays visible evidence,
 candidate reasoning, evidence references, validation findings, and diffs, and
 stores review drafts and status in that workbench. Approved writeback updates
 the annotation candidate file explicitly identified by the candidate index.
